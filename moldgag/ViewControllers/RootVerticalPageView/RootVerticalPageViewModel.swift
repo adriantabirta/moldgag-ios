@@ -16,7 +16,7 @@ class RootVerticalPageViewModel {
             print("current index \(currentIndex)")
         }
     }
-
+    
     var currentPage: Int
     
     var items: [Item]
@@ -42,9 +42,9 @@ class RootVerticalPageViewModel {
         self.isLoading = isLoading
         self.videoCacheService = videoCacheService
         self.moldgagVideoService = moldgagVideoService
- 
         
-//        self.onFirstVCReady(self.viewControllers[0])
+        
+        //        self.onFirstVCReady(self.viewControllers[0])
         
         // todo: move up and load only first 3 elements
         // todo: make here request to get new data
@@ -64,22 +64,26 @@ extension RootVerticalPageViewModel {
     
     func refresh() {
         isLoading = true
-
+        
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(1)) {
             self.isLoading = false
-
+            
             self.items = self.items.shuffled()
             
             let vc = self.buildViewController(for: self.items[0], index: 0)
             
             self.onReadyForUpdateUI(vc!)
-        
+            
         }
     }
     
     func updateCurrentIndex(for vc: UIViewController?) {
-        guard let unwraped = vc, let cast = unwraped as? GenericItemViewController else { return }
+        guard let unwraped = vc, let cast = unwraped as? GenericViewController else { return }
         self.currentIndex = cast.index
+    }
+    
+    func firstViewController() -> UIViewController? {
+        return buildViewController(for: items[0], index: 0)
     }
     
     func viewControllerBefore() -> UIViewController? {
@@ -88,7 +92,7 @@ extension RootVerticalPageViewModel {
         return buildViewController(for: items[prevIndex], index: prevIndex)
     }
     
-    func viewControllerAfter() -> UIViewController? {        
+    func viewControllerAfter() -> UIViewController? {
         let nextIndex = currentIndex + 1
         
         if currentIndex >= items.count / 2 {
@@ -125,7 +129,7 @@ private extension RootVerticalPageViewModel {
             return ImageItemView(.init(item: item), index: index)
             
         case .adBanner:
-            return AdvertisingItemView(.init(item: item), index: index)
+            return AdvertisingView(.init(item: item), index: index)
             
         }
     }

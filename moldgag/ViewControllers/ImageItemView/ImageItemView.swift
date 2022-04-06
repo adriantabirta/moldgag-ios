@@ -8,7 +8,7 @@
 import UIKit
 
 /// ImageItemView -
-class ImageItemView: GenericItemViewController {
+class ImageItemView: GenericViewController {
          
     private let viewModel: ImageItemViewModel
     

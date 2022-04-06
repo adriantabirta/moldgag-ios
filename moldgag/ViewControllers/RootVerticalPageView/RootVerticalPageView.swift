@@ -28,17 +28,29 @@ import MediaPlayer
 class RootVerticalPageView: UIPageViewController {
     
     private let viewModel: RootVerticalPageViewModel
-        
-    var initialOffset: CGPoint = .zero
-            
-//    var heightConstraint: NSLayoutConstraint!
     
-//    var hei: CGFloat = 0
+    var initialOffset: CGPoint = .zero
+    
+    var pullToRefreshLable: UILabel = {
+        //        let label = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 75))
+        $0.text = "Pull to refresh ..."
+        $0.font = .systemFont(ofSize: 25, weight: .bold)
+        $0.textAlignment = .center
+        $0.numberOfLines = 0
+        $0.textColor = .yellow
+        $0.adjustsFontSizeToFitWidth = true
+        $0.minimumScaleFactor = 0.5
+        return $0
+    }(UILabel(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 100)))
+    
+    //    var heightConstraint: NSLayoutConstraint!
+    
+    //    var hei: CGFloat = 0
     
     init(viewModel: RootVerticalPageViewModel = .init(moldgagVideoService: try! MoldgagVideoServiceImpl())) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
-    
+        
         self.delegate = self
         self.dataSource = self
         
@@ -68,66 +80,49 @@ extension RootVerticalPageView {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.view.backgroundColor = .black
         
         let loadingVC = UIStoryboard(name: "LaunchScreen", bundle: nil).instantiateInitialViewController()!
         self.setViewControllers([loadingVC], direction: .forward, animated: true, completion: nil)
         
-        let frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 75)
-        let label = UILabel(frame: frame)
-        label.text = "Pull to refresh ..."
-        label.font = .systemFont(ofSize: 25, weight: .bold)
-        label.textAlignment = .center
-        label.numberOfLines = 0
-        label.textColor = .yellow
-        label.adjustsFontSizeToFitWidth = true
-        label.minimumScaleFactor = 0.5
-//        label.backgroundColor = .red
-
-//        label.translatesAutoresizingMaskIntoConstraints = false
-        view.insertSubview(label, at: 0)
-//        view.addSubview(label)
-//
-//
-//        label.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-//        label.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-//
-//        heightConstraint = label.heightAnchor.constraint(equalToConstant: 100)
-//        heightConstraint.isActive = true
-
-//        label.heightAnchor.constraint(equalTo: label.widthAnchor).isActive = true
-//        label.layoutIfNeeded()
-
+        //        let frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 75)
+        //        let label = UILabel(frame: frame)
+        //        label.text = "Pull to refresh ..."
+        //        label.font = .systemFont(ofSize: 25, weight: .bold)
+        //        label.textAlignment = .center
+        //        label.numberOfLines = 0
+        //        label.textColor = .yellow
+        //        label.adjustsFontSizeToFitWidth = true
+        //        label.minimumScaleFactor = 0.5
+        //        label.backgroundColor = .red
+        
+        //        label.translatesAutoresizingMaskIntoConstraints = false
+        view.insertSubview(pullToRefreshLable, at: 0)
+        //        view.addSubview(label)
+        //
+        //
+        //        label.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        //        label.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        //
+        //        heightConstraint = label.heightAnchor.constraint(equalToConstant: 100)
+        //        heightConstraint.isActive = true
+        
+        //        label.heightAnchor.constraint(equalTo: label.widthAnchor).isActive = true
+        //        label.layoutIfNeeded()
+        
         
         viewModel.updateViewController { vc in
             DispatchQueue.main.async {
                 self.setViewControllers([vc], direction: .forward, animated: true, completion: nil)
             }
         }
-        
-        
-        
     }
 }
 
 extension RootVerticalPageView: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
-//        let scaleFactor = 1 + ((1 - (scrollView.contentOffset.y / initialOffset.y)) * 2)
-//        print(scrollView.contentOffset.y / initialOffset.y)
-        
-//        let val = 100 + ((scrollView.contentOffset.y / self.initialOffset.y) * 100)
-//        print(val)
-//        self.heightConstraint.constant = val
-
-
-        
-//        self.heightConstraint.constant = 200 * ((scrollView.contentOffset.y / self.initialOffset.y) * 5)
-//        self.view.layoutIfNeeded()
-        
-//        hei = 50 + ((scrollView.contentOffset.y / initialOffset.y) * 5)
         
         guard !viewModel.isLoading, viewModel.currentIndex == 0,
               scrollView.contentOffset.y < (UIScreen.main.bounds.height * 0.80) else { return }
@@ -158,7 +153,10 @@ extension RootVerticalPageView: UIPageViewControllerDelegate {
     
     func pageViewController(_ pageViewController: UIPageViewController,
                             willTransitionTo pendingViewControllers: [UIViewController]) {
+        if let vc = viewModel.firstViewController(), !pendingViewControllers.contains(vc) {
+            pullToRefreshLable.alpha =  0.0
 
+        }
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool,
@@ -166,6 +164,8 @@ extension RootVerticalPageView: UIPageViewControllerDelegate {
         
         if completed {
             viewModel.updateCurrentIndex(for: pageViewController.viewControllers?.first)
+            
+            pullToRefreshLable.alpha = viewModel.currentIndex == 0 ? 1.0 : 0.0
         }
     }
 }

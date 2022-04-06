@@ -1,5 +1,5 @@
 //
-//  GenericItemViewController.swift
+//  GenericViewController.swift
 //  moldgag
 //
 //  Created by Adrian Tabirta on 19.02.2022.
@@ -8,7 +8,7 @@
 import UIKit
 import CoreMedia
 
-/// GenericItemViewController -
+/// GenericViewController -
 class GenericViewController: UIViewController {
     
     private let item: Item

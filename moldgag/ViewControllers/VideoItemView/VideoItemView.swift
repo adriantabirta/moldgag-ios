@@ -9,7 +9,7 @@ import UIKit
 import AVFoundation
 
 /// VideoItemView -
-class VideoItemView: GenericItemViewController {
+class VideoItemView: GenericViewController {
         
     private let viewModel: VideoItemViewModel
 
@@ -32,8 +32,6 @@ extension VideoItemView {
         super.viewDidLoad()
         self.view.backgroundColor = .clear // UIColor.random()
         
-
-        
         contentVideoPlayer.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(contentVideoPlayer)
         
@@ -41,6 +39,15 @@ extension VideoItemView {
         contentVideoPlayer.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         contentVideoPlayer.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         contentVideoPlayer.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        
+        
+        let largeConfig = UIImage.SymbolConfiguration(pointSize: 140, weight: .bold, scale: .large)
+               
+        let image = UIImage(systemName: "arrow.up", withConfiguration: largeConfig)?.withTintColor(.white, renderingMode: .alwaysOriginal)
+ 
+        let imageView = UIImageView(image: image)
+        imageView.center = view.center
+        view.addSubview(imageView)
     }
     
     override func viewDidAppear(_ animated: Bool) {

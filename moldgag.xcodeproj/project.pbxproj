@@ -18,8 +18,8 @@
 		6279BE5B27C15276009EE96E /* VideoItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6279BE5A27C15276009EE96E /* VideoItemView.swift */; };
 		6279BE5D27C1529E009EE96E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6279BE5C27C1529E009EE96E /* Extensions.swift */; };
 		6279BE5F27C16A16009EE96E /* ImageItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6279BE5E27C16A16009EE96E /* ImageItemView.swift */; };
-		6279BE6127C17110009EE96E /* AdvertisingItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6279BE6027C17110009EE96E /* AdvertisingItemView.swift */; };
-		6279BE6327C17B40009EE96E /* GenericItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6279BE6227C17B40009EE96E /* GenericItemViewController.swift */; };
+		6279BE6127C17110009EE96E /* AdvertisingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6279BE6027C17110009EE96E /* AdvertisingView.swift */; };
+		6279BE6327C17B40009EE96E /* GenericViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6279BE6227C17B40009EE96E /* GenericViewController.swift */; };
 		6279BE6827C1AFA4009EE96E /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6279BE6727C1AFA4009EE96E /* SignInViewController.swift */; };
 		6279BE6A27C1B2A9009EE96E /* RootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6279BE6927C1B2A9009EE96E /* RootNavigationController.swift */; };
 		6279BE6D27C1B373009EE96E /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6279BE6C27C1B373009EE96E /* CreatePostViewController.swift */; };
@@ -40,7 +40,7 @@
 		62E2812427EA5948005BE178 /* LoadingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E2812327EA5948005BE178 /* LoadingViewModel.swift */; };
 		62E2812727EBA906005BE178 /* ImageItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E2812627EBA906005BE178 /* ImageItemViewModel.swift */; };
 		62E2812927EBA9BA005BE178 /* CachebleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E2812827EBA9BA005BE178 /* CachebleImageView.swift */; };
-		62E2812C27EBB58A005BE178 /* AdvertisingItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E2812B27EBB58A005BE178 /* AdvertisingItemViewModel.swift */; };
+		62E2812C27EBB58A005BE178 /* AdvertisingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E2812B27EBB58A005BE178 /* AdvertisingViewModel.swift */; };
 		62E2812E27F39B3B005BE178 /* GlobalAudioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E2812D27F39B3B005BE178 /* GlobalAudioService.swift */; };
 		62E2813027F39B4A005BE178 /* PluggableApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E2812F27F39B4A005BE178 /* PluggableApplicationDelegate.swift */; };
 		62E2813227F3A1F3005BE178 /* GlobalNavigationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E2813127F3A1F3005BE178 /* GlobalNavigationService.swift */; };
@@ -79,8 +79,8 @@
 		6279BE5A27C15276009EE96E /* VideoItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoItemView.swift; sourceTree = "<group>"; };
 		6279BE5C27C1529E009EE96E /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		6279BE5E27C16A16009EE96E /* ImageItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageItemView.swift; sourceTree = "<group>"; };
-		6279BE6027C17110009EE96E /* AdvertisingItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisingItemView.swift; sourceTree = "<group>"; };
-		6279BE6227C17B40009EE96E /* GenericItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericItemViewController.swift; sourceTree = "<group>"; };
+		6279BE6027C17110009EE96E /* AdvertisingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisingView.swift; sourceTree = "<group>"; };
+		6279BE6227C17B40009EE96E /* GenericViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericViewController.swift; sourceTree = "<group>"; };
 		6279BE6627C1AF70009EE96E /* moldgag.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = moldgag.entitlements; sourceTree = "<group>"; };
 		6279BE6727C1AFA4009EE96E /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		6279BE6927C1B2A9009EE96E /* RootNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootNavigationController.swift; sourceTree = "<group>"; };
@@ -101,7 +101,7 @@
 		62E2812327EA5948005BE178 /* LoadingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewModel.swift; sourceTree = "<group>"; };
 		62E2812627EBA906005BE178 /* ImageItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageItemViewModel.swift; sourceTree = "<group>"; };
 		62E2812827EBA9BA005BE178 /* CachebleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachebleImageView.swift; sourceTree = "<group>"; };
-		62E2812B27EBB58A005BE178 /* AdvertisingItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisingItemViewModel.swift; sourceTree = "<group>"; };
+		62E2812B27EBB58A005BE178 /* AdvertisingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisingViewModel.swift; sourceTree = "<group>"; };
 		62E2812D27F39B3B005BE178 /* GlobalAudioService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalAudioService.swift; sourceTree = "<group>"; };
 		62E2812F27F39B4A005BE178 /* PluggableApplicationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluggableApplicationDelegate.swift; sourceTree = "<group>"; };
 		62E2813127F3A1F3005BE178 /* GlobalNavigationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalNavigationService.swift; sourceTree = "<group>"; };
@@ -193,7 +193,7 @@
 			children = (
 				62E2811327EA3946005BE178 /* ProgressBar.swift */,
 				62E2811127EA266A005BE178 /* SwipebleVideoPlayer.swift */,
-				6279BE6227C17B40009EE96E /* GenericItemViewController.swift */,
+				6279BE6227C17B40009EE96E /* GenericViewController.swift */,
 				62E280FF27E23940005BE178 /* MoldgagError.swift */,
 				62E2812827EBA9BA005BE178 /* CachebleImageView.swift */,
 				62E2812F27F39B4A005BE178 /* PluggableApplicationDelegate.swift */,
@@ -318,8 +318,8 @@
 		62E2812A27EBB4E5005BE178 /* AdvertisingItemView */ = {
 			isa = PBXGroup;
 			children = (
-				6279BE6027C17110009EE96E /* AdvertisingItemView.swift */,
-				62E2812B27EBB58A005BE178 /* AdvertisingItemViewModel.swift */,
+				6279BE6027C17110009EE96E /* AdvertisingView.swift */,
+				62E2812B27EBB58A005BE178 /* AdvertisingViewModel.swift */,
 			);
 			path = AdvertisingItemView;
 			sourceTree = "<group>";
@@ -461,7 +461,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62E2812C27EBB58A005BE178 /* AdvertisingItemViewModel.swift in Sources */,
+				62E2812C27EBB58A005BE178 /* AdvertisingViewModel.swift in Sources */,
 				62E2812227EA584B005BE178 /* MoldgagVideoService.swift in Sources */,
 				62E2812927EBA9BA005BE178 /* CachebleImageView.swift in Sources */,
 				6279BE6D27C1B373009EE96E /* CreatePostViewController.swift in Sources */,
@@ -471,7 +471,7 @@
 				62E2812727EBA906005BE178 /* ImageItemViewModel.swift in Sources */,
 				62E2811227EA266A005BE178 /* SwipebleVideoPlayer.swift in Sources */,
 				62E2810A27E8F036005BE178 /* helloworld.proto in Sources */,
-				6279BE6127C17110009EE96E /* AdvertisingItemView.swift in Sources */,
+				6279BE6127C17110009EE96E /* AdvertisingView.swift in Sources */,
 				62E2811D27EA541E005BE178 /* VideoItemViewModel.swift in Sources */,
 				6279BE6A27C1B2A9009EE96E /* RootNavigationController.swift in Sources */,
 				6279BE5B27C15276009EE96E /* VideoItemView.swift in Sources */,
@@ -487,7 +487,7 @@
 				6279BE6827C1AFA4009EE96E /* SignInViewController.swift in Sources */,
 				6279BE5F27C16A16009EE96E /* ImageItemView.swift in Sources */,
 				6279BE5D27C1529E009EE96E /* Extensions.swift in Sources */,
-				6279BE6327C17B40009EE96E /* GenericItemViewController.swift in Sources */,
+				6279BE6327C17B40009EE96E /* GenericViewController.swift in Sources */,
 				62E280FE27E234BA005BE178 /* VideoCacheService.swift in Sources */,
 				62E2813227F3A1F3005BE178 /* GlobalNavigationService.swift in Sources */,
 				62E2812427EA5948005BE178 /* LoadingViewModel.swift in Sources */,
