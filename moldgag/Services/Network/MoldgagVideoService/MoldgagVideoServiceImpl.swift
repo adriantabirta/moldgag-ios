@@ -43,13 +43,14 @@ extension MoldgagVideoServiceImpl: MoldgagVideoService {
         }
     }
     
-    func items(for page: Int) -> [Item] {
+    func items(for page: Int) -> Array<VideoPostUIModel> {
         [
-            .init(type: .adBanner, url: "https://img1.10bestmedia.com/Images/Photos/379865/Alaska---Forget-me-not_54_990x660.jpg"),
-            .init(type: .image, url: "https://img1.10bestmedia.com/Images/Photos/379865/Alaska---Forget-me-not_54_990x660.jpg"),
-            .init(type: .video, url: "https://moldgag.fra1.digitaloceanspaces.com/staging/067bac88093348ff99b62a6b85282329.mp4"),
-            .init(type: .video, url: "https://moldgag.fra1.digitaloceanspaces.com/staging/dance.mp4"),
-            .init(type: .video, url: "https://moldgag.fra1.digitaloceanspaces.com/staging/china.mp4")
+            VideoPostUIModel(type: PostType.adBanner, url: URL(string: "https://img1.10bestmedia.com/Images/Photos/379865/Alaska---Forget-me-not_54_990x660.jpg")!),
+            VideoPostUIModel(type: PostType.image, url: URL(string: "https://img1.10bestmedia.com/Images/Photos/379865/Alaska---Forget-me-not_54_990x660.jpg")!),
+            VideoPostUIModel(type: PostType.video, url: URL(string: "https://moldgag.fra1.digitaloceanspaces.com/staging/067bac88093348ff99b62a6b85282329.mp4")!),
+            VideoPostUIModel(type: PostType.video, url: URL(string: "https://moldgag.fra1.digitaloceanspaces.com/staging/dance.mp4")!),
+            VideoPostUIModel(type: PostType.video, url: URL(string: "https://moldgag.fra1.digitaloceanspaces.com/staging/china.mp4")!),
+
         ]
     }
 }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,26 +16,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="8pR-Qq-3Xg">
-                                <rect key="frame" x="118.5" y="400.5" width="177" height="95"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splashimage" translatesAutoresizingMaskIntoConstraints="NO" id="pjs-ln-fxS">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="8pR-Qq-3Xg">
+                                <rect key="frame" x="118.5" y="433" width="177" height="30"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="w9b-H4-Gt6">
-                                        <rect key="frame" x="0.0" y="0.0" width="177" height="50"/>
+                                    <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="w9b-H4-Gt6">
+                                        <rect key="frame" x="0.0" y="0.0" width="177" height="0.0"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Fnc-Hp-bBn">
-                                                <rect key="frame" x="0.0" y="0.0" width="59" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="59" height="0.0"/>
                                             </stackView>
                                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Kdd-XO-gmY">
-                                                <rect key="frame" x="59" y="0.0" width="59" height="50"/>
+                                                <rect key="frame" x="59" y="0.0" width="59" height="0.0"/>
                                                 <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </activityIndicatorView>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TkB-ez-bnT">
-                                                <rect key="frame" x="118" y="0.0" width="59" height="50"/>
+                                                <rect key="frame" x="118" y="0.0" width="59" height="0.0"/>
                                             </stackView>
                                         </subviews>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading ..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p62-9T-2fk">
-                                        <rect key="frame" x="0.0" y="65" width="177" height="30"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Moldgag" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p62-9T-2fk">
+                                        <rect key="frame" x="0.0" y="0.0" width="177" height="30"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -48,6 +51,10 @@
                         <constraints>
                             <constraint firstItem="8pR-Qq-3Xg" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="0l9-UK-cBW"/>
                             <constraint firstItem="8pR-Qq-3Xg" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Df1-Ck-h0R"/>
+                            <constraint firstAttribute="bottom" secondItem="pjs-ln-fxS" secondAttribute="bottom" id="RQL-Dg-Lyb"/>
+                            <constraint firstItem="pjs-ln-fxS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="T7d-Ib-RYS"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pjs-ln-fxS" secondAttribute="trailing" id="dMn-Tl-U5f"/>
+                            <constraint firstItem="pjs-ln-fxS" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="g4k-Jb-wtx"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -56,4 +63,7 @@
             <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="splashimage" width="1000" height="1128"/>
+    </resources>
 </document>

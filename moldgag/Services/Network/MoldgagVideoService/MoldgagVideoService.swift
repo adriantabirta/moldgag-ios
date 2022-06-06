@@ -13,5 +13,5 @@ protocol MoldgagVideoService {
     func sayHello(for name: String) -> String
     
     /// Items for page
-    func items(for page: Int) -> [Item]
+    func items(for page: Int) -> [VideoPostUIModel]
 }
