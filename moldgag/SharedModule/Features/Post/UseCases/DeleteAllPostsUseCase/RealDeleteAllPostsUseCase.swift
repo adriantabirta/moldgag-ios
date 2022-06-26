@@ -14,16 +14,18 @@ class RealDeleteAllPostsUseCase {
     
     @Injected private var postRepository: PostRepository
     
-    @Injected private var videoCacheService: VideoCacheService
+    @Injected private var videoRepository: VideoRepository
     
     @Injected private var imageCacheService: ImageCacheService
     
 }
 
+// MARK: - DeleteAllPostsUseCase
+
 extension RealDeleteAllPostsUseCase: DeleteAllPostsUseCase {
     
     func execute() -> AnyPublisher<Void, Never> {
-        Publishers.CombineLatest3(postRepository.deleteAll(), videoCacheService.deleteAllCache(), imageCacheService.deleteAllCache())
+        Publishers.Zip3(postRepository.deleteAll(), videoRepository.deleteAll(), imageCacheService.deleteAllCache())
             .map{ _, _, _ in Void() }
             .eraseToAnyPublisher()
     }

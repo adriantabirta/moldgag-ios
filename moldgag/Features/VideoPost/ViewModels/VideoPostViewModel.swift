@@ -14,7 +14,7 @@ class VideoPostViewModel {
     
     // MARK: - Dependencies
     
-    @Injected var getVideoPostUseCase: GetVideoPostUseCase
+    @Injected var getVideoPostUseCase: GetVideoAssetUseCase
     
     // MARK: - Properties
     

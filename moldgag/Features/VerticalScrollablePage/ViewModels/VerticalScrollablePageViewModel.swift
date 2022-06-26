@@ -18,7 +18,7 @@ class VerticalScrollablePageViewModel: ObservableObject {
 
     @Injected var refreshPostsUseCase: RefreshPostsUseCase
 
-    @Injected var getPostsUseCase: GetPostsUseCase
+    @Injected var getPostsUseCase: GetPostsStreamUseCase
 
     @Injected var postModelToPostUIModelMapper: PostModelToPostUIModelMapper
     

@@ -42,6 +42,8 @@ private extension ResolverService {
     func registerLocalDataSources() {
         Resolver.register { RealPostLocalDataSource() as PostLocalDataSource }
         Resolver.register { RealUserAuthoriationLocalDataSource() as UserAuthoriationLocalDataSource }
+        Resolver.register { RealVideoLocalDataSource() as VideoLocalDataSource }
+
     }
     
     func registerRemoteDataSources() {
@@ -55,13 +57,13 @@ private extension ResolverService {
         Resolver.register { RealPostRepository() as PostRepository }
         Resolver.register { RealUserAuthorizationRepository() as UserAuthorizationRepository }
         Resolver.register { RealUserRepository() as UserRepository }
-
+        Resolver.register { RealVideoRepository() as VideoRepository }
     }
     
     func registerUseCases() {
         Resolver.register { RealLoadPostsForPageUseCase() as LoadPostsForPageUseCase }
-        Resolver.register { RealGetVideoPostUseCase() as GetVideoPostUseCase }
-        Resolver.register { RealGetPostsUseCase() as GetPostsUseCase }
+        Resolver.register { RealGetVideoAssetUseCase() as GetVideoAssetUseCase }
+        Resolver.register { RealGetPostsStreamUseCase() as GetPostsStreamUseCase }
         Resolver.register { RealRefreshPostsUseCase() as RefreshPostsUseCase }
         Resolver.register { RealDeleteAllPostsUseCase() as DeleteAllPostsUseCase }
         Resolver.register { RealRefreshPostsUseCase() as RefreshPostsUseCase }
@@ -111,7 +113,6 @@ private extension ResolverService {
     
     func registerServices() {
         Resolver.register { RealLocalStorageService() as LocalStorageService }
-        Resolver.register { RealVideoCacheService() as VideoCacheService }
         Resolver.register { RealImageCacheService() as ImageCacheService }
     }
 }

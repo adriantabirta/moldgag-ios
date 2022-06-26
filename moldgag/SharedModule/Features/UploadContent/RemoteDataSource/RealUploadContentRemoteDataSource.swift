@@ -22,7 +22,7 @@ class RealUploadContentRemoteDataSource {
 extension RealUploadContentRemoteDataSource: UploadContentRemoteDataSource {
     
     func upload(url: URL, postType: PostType) -> AnyPublisher<UploadResponseRemoteDataModel, ApplicationError> {        
-        networkService.request(enpoint: .upload(localUrl: url, type: postType))
+        networkService.requestMock(enpoint: .upload(localUrl: url, type: postType))
             .mapError({ ApplicationError($0) })
             .eraseToAnyPublisher()
     }

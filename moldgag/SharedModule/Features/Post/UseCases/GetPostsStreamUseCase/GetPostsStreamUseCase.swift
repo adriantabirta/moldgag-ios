@@ -7,7 +7,7 @@
 
 import Combine
 
-protocol GetPostsUseCase {
+protocol GetPostsStreamUseCase {
     
     func execute() -> AnyPublisher<Array<PostModel>, Never>
     

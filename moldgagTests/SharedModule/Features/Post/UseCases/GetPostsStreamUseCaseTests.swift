@@ -1,5 +1,5 @@
 //
-//  LoadPostsForPageUseCaseTests.swift
+//  GetPostsStreamUseCaseTests.swift
 //  moldgagTests
 //
 //  Created by Adrian Tabirta on 26.06.2022.
@@ -10,11 +10,11 @@ import Combine
 import Resolver
 @testable import moldgag
 
-class LoadPostsForPageUseCaseTests: XCTestCase {
+class GetPostsStreamUseCaseTests: XCTestCase {
     
     private var postRepository: PostRepositoryMock!
     
-    private var tested: LoadPostsForPageUseCase!
+    private var tested: GetPostsStreamUseCase!
     
     private var cancellables: Set<AnyCancellable>!
     
@@ -22,7 +22,7 @@ class LoadPostsForPageUseCaseTests: XCTestCase {
         super.setUp()
         Resolver.registerForUnitTests()
         self.postRepository = Resolver.resolveMock(PostRepository.self)
-        self.tested = RealLoadPostsForPageUseCase()
+        self.tested = RealGetPostsStreamUseCase()
         self.cancellables = .init()
     }
     
@@ -35,17 +35,18 @@ class LoadPostsForPageUseCaseTests: XCTestCase {
     }
     
     func testExecuteWithSuccess() {
-        let expectation = expectation(description: "LoadPostsForPageUseCaseTests::testExecuteWithSuccess")
-        self.postRepository.stubbedLoadPostsResult = Just(()).eraseToAnyPublisher()
+        let expectation = expectation(description: "GetPostsStreamUseCaseTests::testExecuteWithSuccess")
+        let arrayStub = [PostModel.stub()]
+        postRepository.stubbedGetPostsResult = Just(arrayStub).eraseToAnyPublisher()
         
-        
-        tested.execute(for: 0)
-            .sink(receiveValue: {
-                expectation.fulfill()
-            })
-            .store(in: &cancellables)
+        tested.execute().sink(receiveValue: { array in
+            expectation.fulfill()
+            XCTAssertEqual(array, arrayStub, "Should be the same array.")
+        })
+        .store(in: &cancellables)
         
         wait(for: [expectation], timeout: 1.0)
+        XCTAssertEqual(postRepository.invokedGetPostsCount, 1, "Should be called only once.")
     }
     
 }

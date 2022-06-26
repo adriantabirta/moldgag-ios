@@ -10,5 +10,5 @@ public enum DatabaseError: Error {
     case unableToRead(String)
     
     case unableToWrite(String)
-        
+    
 }

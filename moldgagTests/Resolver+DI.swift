@@ -15,8 +15,8 @@ extension Resolver {
     static func registerForUnitTests() {
         Resolver.root = .test
         test.register { FilenameToLocalPathMapperMock() as FilenameToLocalPathMapper }.scope(.cached)
-        test.register { VideoCacheServiceMock() as VideoCacheService }.scope(.cached)
         test.register { RealLocalStorageService() as LocalStorageService }.scope(.cached)
+        test.register { ImageCacheServiceMock() as ImageCacheService }.scope(.cached)
 
         registerLocalDataSources()
         registerRemoteDataSources()
@@ -32,22 +32,23 @@ extension Resolver {
     }
     
     static func registerRemoteDataSources() {
-        test.register { PostRemoteDataSourceMock() as PostRemoteDataSource }
+        test.register { PostRemoteDataSourceMock() as PostRemoteDataSource }.scope(.cached)
             
     }
     
     static func registerRepositories() {
-        test.register { PostRepositoryMock() as PostRepository }
-
+        test.register { PostRepositoryMock() as PostRepository }.scope(.cached)
+        test.register { VideoRepositoryMock() as VideoRepository }.scope(.cached)
     }
     
     static func registerUseCases() {
-        test.register { UploadContentUseCaseMock() as UploadContentUseCase }
-        
+        test.register { UploadContentUseCaseMock() as UploadContentUseCase }.scope(.cached)
+        test.register { DeleteAllPostsUseCaseMock() as DeleteAllPostsUseCase }.scope(.cached)
+        test.register { LoadPostsForPageUseCaseMock() as LoadPostsForPageUseCase }.scope(.cached)
     }
     
     static func registerMappers() {
-        test.register { PostRemoteDataModelToPostModelMapperMock() as PostRemoteDataModelToPostModelMapper }
+        test.register { PostRemoteDataModelToPostModelMapperMock() as PostRemoteDataModelToPostModelMapper }.scope(.cached)
 
     }
 

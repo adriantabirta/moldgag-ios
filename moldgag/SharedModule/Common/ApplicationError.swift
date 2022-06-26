@@ -13,6 +13,8 @@ public enum ApplicationError: Error {
     
     case database(DatabaseError)
     
+    case filesystem(FilesystemError)
+    
     case decoding
     
     case custom(String)

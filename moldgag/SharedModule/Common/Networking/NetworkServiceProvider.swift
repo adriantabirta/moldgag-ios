@@ -46,6 +46,13 @@ class NetworkServiceProvider<N: NetworkService> {
                 .delay(for: 1, scheduler: RunLoop.current)
                 .setFailureType(to: NetworkError.self)
                 .eraseToAnyPublisher()
+        } else if T.self is UploadResponseRemoteDataModel.Type {
+            let uploadData = UploadResponseRemoteDataModel.UploadData(id: "1", link: "https://content.com/image.jpg")
+            return Just(UploadResponseRemoteDataModel(status: 200, success: true, data: uploadData) as! T)
+                .delay(for: 1, scheduler: RunLoop.current)
+                .setFailureType(to: NetworkError.self)
+                .eraseToAnyPublisher()
+            
         } else {
             let result = try! T(from: decoder as! Decoder)
             return Just(result)
@@ -61,7 +68,7 @@ class NetworkServiceProvider<N: NetworkService> {
             .tryMap() { element -> Data in
                 print(element.response.description)
                 print(String(data: element.data, encoding: .utf8))
-
+                
                 guard let httpResponse = element.response as? HTTPURLResponse,
                       httpResponse.statusCode == 200 else {
                     throw URLError(.badServerResponse)

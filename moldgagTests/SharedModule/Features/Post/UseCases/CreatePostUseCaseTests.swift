@@ -14,7 +14,7 @@ class CreatePostUseCaseTests: XCTestCase {
     
     private var postRepository: PostRepositoryMock!
   
-    private var tested: CreatePostUseCase!
+    private var tested: RealCreatePostUseCase!
     
     private var cancellables: Set<AnyCancellable>!
     
@@ -41,7 +41,7 @@ class CreatePostUseCaseTests: XCTestCase {
         let postModelStub = PostModel.stub()
         let expectation = expectation(description: "CreatePostUseCaseTests::testExecuteWithSuccess")
 
-        postRepository.stubbedCreateResult = Just(postModelStub).setFailureType(to: ApplicationError.self).eraseToAnyPublisher()
+        self.postRepository.stubbedCreateResult = Just(postModelStub).setFailureType(to: ApplicationError.self).eraseToAnyPublisher()
         
         tested.execute(title: titleStub, localFileUrl: localFileUrlStub, postType: postTypeStub)
             .sink(receiveCompletion: { completion in

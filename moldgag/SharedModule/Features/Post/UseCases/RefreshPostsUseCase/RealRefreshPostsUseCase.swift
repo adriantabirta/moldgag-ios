@@ -23,7 +23,7 @@ struct RealRefreshPostsUseCase {
 extension RealRefreshPostsUseCase: RefreshPostsUseCase {
     
     func execute() -> AnyPublisher<Void, Never> {
-        Publishers.CombineLatest(deleteAllPostsUseCase.execute(), loadPostsForPageUseCase.execute(for: 0))
+        Publishers.Zip(deleteAllPostsUseCase.execute(), loadPostsForPageUseCase.execute(for: 0))
             .map{ _, _ in Void() }
             .eraseToAnyPublisher()
     }
