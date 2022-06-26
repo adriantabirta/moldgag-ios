@@ -7,7 +7,7 @@ jobs:
     runs-on: macos-11
     steps:
       - name: Pwd
-        run: pwd
+        run: pwd && ls
       - name: Delete
         run: rm moldgag/moldgag.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
 #     - uses: swift-actions/setup-swift@v1
