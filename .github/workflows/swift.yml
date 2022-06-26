@@ -8,6 +8,8 @@ jobs:
     steps:
       - name: Pwd
         run: pwd
+      - name: Delete
+        run: rm moldgag.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
 #     - uses: swift-actions/setup-swift@v1
 #       with:
 #         swift-version: "5.6.1"
