@@ -16,6 +16,38 @@ extension Resolver {
         Resolver.root = .test
         test.register { FilenameToLocalPathMapperMock() as FilenameToLocalPathMapper }.scope(.cached)
         test.register { VideoCacheServiceMock() as VideoCacheService }.scope(.cached)
+        test.register { RealLocalStorageService() as LocalStorageService }.scope(.cached)
+
+        registerLocalDataSources()
+        registerRemoteDataSources()
+        registerUseCases()
+        registerMappers()
+        registerRepositories()
+    }
+    
+
+    
+    static func registerLocalDataSources() {
+        
+    }
+    
+    static func registerRemoteDataSources() {
+        test.register { PostRemoteDataSourceMock() as PostRemoteDataSource }
+            
+    }
+    
+    static func registerRepositories() {
+        test.register { PostRepositoryMock() as PostRepository }
+
+    }
+    
+    static func registerUseCases() {
+        test.register { UploadContentUseCaseMock() as UploadContentUseCase }
+        
+    }
+    
+    static func registerMappers() {
+        test.register { PostRemoteDataModelToPostModelMapperMock() as PostRemoteDataModelToPostModelMapper }
 
     }
 

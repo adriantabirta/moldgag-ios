@@ -49,4 +49,8 @@ extension RealImageCacheService: ImageCacheService {
                 .eraseToAnyPublisher()
         }
     }
+    
+    func deleteAllCache() -> AnyPublisher<Void, Never> {
+        Just(cache.removeAllCachedResponses()).eraseToAnyPublisher()
+    }
 }

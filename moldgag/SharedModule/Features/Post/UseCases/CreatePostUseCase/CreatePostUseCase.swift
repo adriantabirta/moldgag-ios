@@ -10,6 +10,6 @@ import Foundation
 
 protocol CreatePostUseCase {
     
-    func execute(contentTouple: ContentTouple) -> AnyPublisher<PostModel, ApplicationError>
+    func execute(title: String, localFileUrl: URL, postType: PostType) -> AnyPublisher<PostModel, ApplicationError>
     
 }

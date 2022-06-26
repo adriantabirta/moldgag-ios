@@ -130,7 +130,7 @@ extension VideoPostView {
                 
                 DispatchQueue.main.async {
                     
-                   let vc = CreatePostView()
+                   let vc = CreatePostPartOneView()
                     (self.view.window?.rootViewController as! UINavigationController).pushViewController(vc, animated: true)
 
                     

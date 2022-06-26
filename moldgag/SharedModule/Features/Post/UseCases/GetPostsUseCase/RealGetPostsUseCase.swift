@@ -2,26 +2,22 @@
 //  RealGetPostsUseCase.swift
 //  moldgag
 //
-//  Created by Adrian Tabirta on 27.05.2022.
+//  Created by Adrian Tabirta on 08.06.2022.
 //
 
 import Combine
 import Resolver
 
-class RealGetPostsUseCase: GetPostsUseCase {
+class RealGetPostsUseCase {
     
     // MARK: - Dependencies
-    
     @Injected var postRepository: PostRepository
     
 }
 
-// MARK: - GetPostsUseCase
-
-extension RealGetPostsUseCase {
+extension RealGetPostsUseCase: GetPostsUseCase {
     
-    func execute(for page: Int) -> AnyPublisher<PostsModel, ApplicationError> {
-        postRepository.getPosts(for: page).eraseToAnyPublisher()
+    func execute() -> AnyPublisher<Array<PostModel>, Never> {
+        postRepository.getPosts()
     }
 }
-

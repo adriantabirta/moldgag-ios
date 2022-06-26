@@ -7,37 +7,62 @@
 
 import Combine
 import Resolver
+import Foundation
 
-class RealPostRepository: PostRepository {
+class RealPostRepository {
     
     // MARK: - Dependencies
+    
+    @Injected var uploadContentRemoteDataSource: UploadContentRemoteDataSource
     
     @Injected var postLocalDataSource: PostLocalDataSource
     
     @Injected var postRemoteDataSource: PostRemoteDataSource
     
+    @Injected var postRemoteModelToPostLocalDataModelMapper: PostRemoteDataModelToPostLocalDataModelMapper
+    
     @Injected var postLocalDataModelToPostMapper: PostLocalDataModelToPostMapper
     
-    @Injected var postRemoteDataModelToPostMapper: PostRemoteDataModelToPostModelMapper
+    @Injected var postRemoteDataModelToPostModelMapper: PostRemoteDataModelToPostModelMapper
+    
+    private var bag = Set<AnyCancellable>()
     
 }
 
 // MARK: - PostRepository
 
-extension RealPostRepository {
+extension RealPostRepository: PostRepository {
     
-    func getPosts(for page: Int) -> AnyPublisher<PostsModel, ApplicationError> {
-        
-        let local = postLocalDataSource.getPosts(for: page)
+    func loadPosts(for page: Int) -> AnyPublisher<Void, Never> {
+        postRemoteDataSource.getPosts(for: page)
+            .map({ $0.posts })
+            .map({ self.postRemoteModelToPostLocalDataModelMapper.map(from: $0) })
+            .handleEvents(receiveOutput: { self.postLocalDataSource.save($0) })
+            .handleEvents(receiveCompletion: { completion in
+                // handle error here
+                // error handler
+            })
+            .map({ _ in Void() })
+            .replaceError(with: ())
+            .eraseToAnyPublisher()
+    }
+    
+    func getPosts() -> AnyPublisher<Array<PostModel>, Never> {
+        postLocalDataSource.getPosts()
             .map({ $0.compactMap({ self.postLocalDataModelToPostMapper.map(from: $0) }) })
-            .map({ PostsModel(posts: $0) })
-            .mapError({ ApplicationError.database($0) })
-            
-        let remote = postRemoteDataSource.getPosts(for: page)
-            .map({ [self] in $0.posts.compactMap({ postRemoteDataModelToPostMapper.map(from: $0) }) })
-            .map({ PostsModel(posts: $0) })
-            .mapError({ ApplicationError.network($0) })
-        
-        return Publishers.Merge(local, remote).eraseToAnyPublisher()
+            .mapError({ ApplicationError.database($0) }) // todo: handle error
+            .replaceError(with: [])
+            .eraseToAnyPublisher()
+    }
+    
+    func deleteAll() -> AnyPublisher<Void, Never> {
+        postLocalDataSource.deleteAll()
+    }
+    
+    func create(localFileUrl: URL, title: String, postType: PostType) -> AnyPublisher<PostModel, ApplicationError> {
+        uploadContentRemoteDataSource.upload(url: localFileUrl, postType: postType)
+            .flatMap { self.postRemoteDataSource.create(from: $0.data.link, title: title, and: postType) }
+            .compactMap { self.postRemoteDataModelToPostModelMapper.map(from: $0) }
+            .eraseToAnyPublisher()
     }
 }

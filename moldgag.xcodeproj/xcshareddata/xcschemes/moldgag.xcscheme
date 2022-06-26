@@ -38,16 +38,6 @@
                ReferencedContainer = "container:moldgag.xcodeproj">
             </BuildableReference>
          </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6279BE4627C14889009EE96E"
-               BuildableName = "moldgagUITests.xctest"
-               BlueprintName = "moldgagUITests"
-               ReferencedContainer = "container:moldgag.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

@@ -7,11 +7,17 @@
 
 import Resolver
 
-class RealGetUserUseCase: GetUserUseCase {
+class RealGetUserUseCase {
     
     // MARK: - Depencencies
     
     @Injected var userRepository: UserRepository
+    
+}
+
+// MARK: - GetUserUseCase
+
+extension RealGetUserUseCase: GetUserUseCase {
     
     func execute() -> Optional<User> {
         userRepository.getCurrentUser()

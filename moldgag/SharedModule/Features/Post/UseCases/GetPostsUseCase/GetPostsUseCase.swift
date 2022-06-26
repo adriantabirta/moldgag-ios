@@ -2,12 +2,13 @@
 //  GetPostsUseCase.swift
 //  moldgag
 //
-//  Created by Adrian Tabirta on 27.05.2022.
+//  Created by Adrian Tabirta on 08.06.2022.
 //
 
 import Combine
 
-public protocol GetPostsUseCase {
+protocol GetPostsUseCase {
     
-    func execute(for page: Int) -> AnyPublisher<PostsModel, ApplicationError>
+    func execute() -> AnyPublisher<Array<PostModel>, Never>
+    
 }

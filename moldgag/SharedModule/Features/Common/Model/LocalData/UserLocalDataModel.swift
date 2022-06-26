@@ -6,20 +6,18 @@
 //
 
 import Foundation
-import RealmSwift
 
-class UserLocalDataModel: Object, Identifiable {
+class UserLocalDataModel: Codable {
     
-    @Persisted(primaryKey: true) var id: String
+    var id: String
     
-    @Persisted var firstName: String = ""
+    var firstName: String = ""
     
-    @Persisted var lastName: String = ""
+    var lastName: String = ""
     
-    convenience init(id: String, firstName: String, lastName: String) {
-        self.init()
-        self.id = id
-        self.firstName = firstName
-        self.lastName = lastName
-    }
+//    convenience init(id: String, firstName: String, lastName: String) {
+//        self.id = id
+//        self.firstName = firstName
+//        self.lastName = lastName
+//    }
 }

@@ -9,7 +9,7 @@ import Combine
 import Resolver
 import Foundation
 
-class RealPostRemoteDataSource: PostRemoteDataSource {
+class RealPostRemoteDataSource {
     
     // MARK: - Dependencies
     
@@ -23,16 +23,23 @@ class RealPostRemoteDataSource: PostRemoteDataSource {
 
 // MARK: - PostRemoteDataSource
 
-extension RealPostRemoteDataSource {
+extension RealPostRemoteDataSource: PostRemoteDataSource {
     
-    func getPosts(for page: Int) -> AnyPublisher<PostsRemoteDataModel, NetworkError> {
-        let request: AnyPublisher<PostsRemoteDataModel, NetworkError> = networkServiceProvider.requestMock(enpoint: .posts(page: page))
-        return request.eraseToAnyPublisher()
+    func getPosts(for page: Int) -> AnyPublisher<PostsRemoteDataModel, ApplicationError> {
+//        let request: AnyPublisher<PostsRemoteDataModel, ApplicationError> = networkServiceProvider.requestMock(enpoint: .posts(page: page))
+//        return request.eraseToAnyPublisher()
+        
+        return networkServiceProvider.requestMock(enpoint: .posts(page: page))
+            .mapError { ApplicationError.network($0) }
+            .eraseToAnyPublisher()
     }
     
-    func create(from url: String, title: String, and postType: PostType) -> AnyPublisher<PostRemoteDataModel, NetworkError> {
+    func create(from url: String, title: String, and postType: PostType) -> AnyPublisher<PostRemoteDataModel, ApplicationError> {
         let endpoint: PostNetworkService = .create(title: title, url: url, postType: postType)
-        return networkServiceProvider.requestMock(enpoint: endpoint).eraseToAnyPublisher()
+        return networkServiceProvider
+            .requestMock(enpoint: endpoint)
+            .mapError { ApplicationError.network($0) }
+            .eraseToAnyPublisher()
     }
-
+    
 }

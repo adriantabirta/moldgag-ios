@@ -10,8 +10,8 @@ import Foundation
 
 protocol PostRemoteDataSource {
     
-    func getPosts(for page: Int) -> AnyPublisher<PostsRemoteDataModel, NetworkError>
+    func getPosts(for page: Int) -> AnyPublisher<PostsRemoteDataModel, ApplicationError>
     
-    func create(from url: String, title: String, and postType: PostType) -> AnyPublisher<PostRemoteDataModel, NetworkError>
+    func create(from url: String, title: String, and postType: PostType) -> AnyPublisher<PostRemoteDataModel, ApplicationError>
     
 }

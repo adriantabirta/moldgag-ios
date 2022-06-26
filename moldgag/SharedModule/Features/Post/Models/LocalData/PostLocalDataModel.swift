@@ -5,20 +5,14 @@
 //  Created by Adrian Tabirta on 27.05.2022.
 //
 
-import RealmSwift
+import Foundation
 
-class PostLocalDataModel: Object, Identifiable {
+struct PostLocalDataModel: Codable {
     
-    @Persisted(primaryKey: true) var id: String
+    let id: String
     
-    @Persisted var type: String = ""
+    let type: String
     
-    @Persisted var url: String = ""
+    let url: String
     
-    convenience init(id: String, type: String, url: String) {
-        self.init()
-        self.id = id
-        self.type = type
-        self.url = url
-    }
 }

@@ -5,6 +5,7 @@
 //  Created by Adrian Tabirta on 30.05.2022.
 //
 
+import Combine
 import Resolver
 import AVFoundation
 
@@ -53,13 +54,18 @@ extension RealVideoCacheService: VideoCacheService {
         }
     }
     
-    func deleteAllCache() {
-        let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let fileURLs = try! FileManager.default.contentsOfDirectory(at: path, includingPropertiesForKeys: nil, options: .skipsHiddenFiles)
-        
-        fileURLs.forEach { url in
-            try! FileManager.default.removeItem(at: url)
-        }
+    func deleteAllCache() -> AnyPublisher<Void, Never> {
+        FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first.publisher
+            .compactMap({ $0 })
+            .compactMap({
+                return try? FileManager.default
+                    .contentsOfDirectory(at: $0, includingPropertiesForKeys: nil, options: .skipsHiddenFiles)
+            })
+            .handleEvents(receiveOutput: {
+                $0.forEach { url in try? FileManager.default.removeItem(at: url) }
+            })
+            .map({ _ in Void() })
+            .eraseToAnyPublisher()
     }
 
 }

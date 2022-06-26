@@ -5,9 +5,6 @@
 //  Created by Adrian Tabirta on 19.02.2022.
 //
 
-import DHT
-import NIO
-import GRPC
 import UIKit
 import Combine
 import Resolver
@@ -38,9 +35,11 @@ class VerticalScrollablePageView: UIPageViewController {
     
     private var audioSessionVolumeMonitor = AudioSessionVolumeMonitor()
     
+    weak var coordinator: VerticalScrollablePageCoordinator?
+    
     var initialOffset: CGPoint = .zero
     
-    private var progressBar = ProgressBar()
+    private var volumeProgressBar = ProgressBar()
     
     private var bag = Set<AnyCancellable>()
     
@@ -70,7 +69,7 @@ class VerticalScrollablePageView: UIPageViewController {
         scrollView.delegate = self
         initialOffset = scrollView.contentOffset
         
-        viewModel.$firstViewControllerPublishd
+        viewModel.$firstViewControllerPublished
             .receive(on: DispatchQueue.main)
             .sink { vc in
                 self.setViewControllers([vc], direction: .forward, animated: true, completion: nil)
@@ -79,7 +78,7 @@ class VerticalScrollablePageView: UIPageViewController {
         audioSessionVolumeMonitor.volume
             .removeDuplicates()
             .print()
-            .assign(to: \.progressWithFadeAnimation, on: progressBar).store(in: &bag)
+            .assign(to: \.progressWithFadeAnimation, on: volumeProgressBar).store(in: &bag)
     }
     
     required init?(coder: NSCoder) {
@@ -92,7 +91,7 @@ class VerticalScrollablePageView: UIPageViewController {
         scrollView.delegate = self
         initialOffset = scrollView.contentOffset
         
-        viewModel.$firstViewControllerPublishd
+        viewModel.$firstViewControllerPublished
             .receive(on: DispatchQueue.main)
             .sink { vc in
                 self.setViewControllers([vc], direction: .forward, animated: true, completion: nil)
@@ -101,7 +100,7 @@ class VerticalScrollablePageView: UIPageViewController {
         audioSessionVolumeMonitor.volume
             .removeDuplicates()
             .print()
-            .assign(to: \.progressWithFadeAnimation, on: progressBar).store(in: &bag)
+            .assign(to: \.progressWithFadeAnimation, on: volumeProgressBar).store(in: &bag)
     }
 }
 
@@ -116,8 +115,8 @@ extension VerticalScrollablePageView {
         
         self.view.backgroundColor = .black
         
-        let loadingVC = UIStoryboard(name: "LaunchScreen", bundle: nil).instantiateInitialViewController()!
-        self.setViewControllers([loadingVC], direction: .forward, animated: true, completion: nil)
+//        let loadingVC = UIStoryboard(name: "LaunchScreen", bundle: nil).instantiateInitialViewController()!
+//        self.setViewControllers([loadingVC], direction: .forward, animated: true, completion: nil)
         
         //        let frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 75)
         //        let label = UILabel(frame: frame)
@@ -149,14 +148,14 @@ extension VerticalScrollablePageView {
 
         
         // add progress bar
-        progressBar.translatesAutoresizingMaskIntoConstraints = false
-        progressBar.color = .random()
-        view.addSubview(progressBar)
+        volumeProgressBar.translatesAutoresizingMaskIntoConstraints = false
+        volumeProgressBar.color = .random()
+        view.addSubview(volumeProgressBar)
         
-        progressBar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
-        progressBar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
-        progressBar.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -3).isActive = true
-        progressBar.heightAnchor.constraint(equalToConstant: 2).isActive = true
+        volumeProgressBar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
+        volumeProgressBar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
+        volumeProgressBar.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -3).isActive = true
+        volumeProgressBar.heightAnchor.constraint(equalToConstant: 2).isActive = true
         
         
 
@@ -164,7 +163,7 @@ extension VerticalScrollablePageView {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        viewModel.loadFirstPage()
+        // viewModel.loadFirstPage()
     }
 }
 

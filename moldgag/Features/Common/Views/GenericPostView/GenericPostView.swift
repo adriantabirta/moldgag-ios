@@ -6,13 +6,23 @@
 //
 
 import UIKit
+import Combine
+import Resolver
 import CoreMedia
 
 /// GenericViewController -
 class GenericPostView: UIViewController {
 
-    let genericPostViewModel: GenericPostViewModel
+    // MARK: - Dependencies
+    
+    @Injected private var refreshPostsUseCase: RefreshPostsUseCase
+    
+    // MARK: - Propreties
 
+    let genericPostViewModel: GenericPostViewModel
+    
+    private var bag = Set<AnyCancellable>()
+    
     init(genericPostViewModel: GenericPostViewModel) {
         self.genericPostViewModel = genericPostViewModel
         super.init(nibName: nil, bundle: nil)
@@ -86,13 +96,18 @@ extension GenericPostView {
         
         
         alert.view.translatesAutoresizingMaskIntoConstraints = false
-        alert.view.heightAnchor.constraint(equalToConstant: 530).isActive = true
+        alert.view.heightAnchor.constraint(equalToConstant: 590).isActive = true
     
         
         let inset = -(UIScreen.main.bounds.width * 0.8)
         let symbolConfiguration = UIImage.SymbolConfiguration(pointSize: 22, weight: .regular, scale: .medium)
 
         
+        let refreshAction = UIAlertAction(title: "Refresh", style: .default , handler:{ (UIAlertAction)in
+            self.refreshPostsUseCase.execute().sink(receiveValue: {}).store(in: &self.bag)
+        })
+    
+        alert.addAction(refreshAction)
 
         
         let shareAction = UIAlertAction(title: "Share", style: .default , handler:{ (UIAlertAction)in
@@ -113,7 +128,7 @@ extension GenericPostView {
             alert.dismiss(animated: true) {
                 
                 DispatchQueue.main.async {
-                    let vc = CreatePostView()
+                    let vc = CreatePostPartOneView()
 //                    let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CreatePostViewController")
 //                    self.navigationController?.pushViewController(vc, animated: true)
                     (self.view.window?.rootViewController as! UINavigationController).pushViewController(vc, animated: true)

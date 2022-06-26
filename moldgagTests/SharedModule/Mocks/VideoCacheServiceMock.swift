@@ -5,7 +5,9 @@
 //  Created by Adrian Tabirta on 30.05.2022.
 //
 
+import Combine
 import AVFoundation
+@testable import moldgag
 
 class VideoCacheServiceMock: VideoCacheService {
 
@@ -35,9 +37,11 @@ class VideoCacheServiceMock: VideoCacheService {
 
     var invokedDeleteAllCache = false
     var invokedDeleteAllCacheCount = 0
+    var stubbedDeleteAllCacheResult: AnyPublisher<Void, Never>!
 
-    func deleteAllCache() {
+    func deleteAllCache() -> AnyPublisher<Void, Never> {
         invokedDeleteAllCache = true
         invokedDeleteAllCacheCount += 1
+        return stubbedDeleteAllCacheResult
     }
 }

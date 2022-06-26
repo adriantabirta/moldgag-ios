@@ -9,9 +9,10 @@ import Foundation
 
 struct RealPostModelToPostUIModelMapper: PostModelToPostUIModelMapper {
     
-    func map(from model: PostModel) -> VideoPostUIModel? {
-        guard let url = URL(string: model.url) else { return nil }
-        return VideoPostUIModel(type: model.type, url: url)
+    func map(from model: Array<PostModel>) -> Array<VideoPostUIModel> {
+        return model.compactMap({ model in
+            guard let url = URL(string: model.url) else { return nil }
+            return VideoPostUIModel(type: model.type, url: url) })
     }
     
 }

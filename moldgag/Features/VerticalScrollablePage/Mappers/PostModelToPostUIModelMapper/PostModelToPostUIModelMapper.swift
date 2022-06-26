@@ -7,6 +7,6 @@
 
 protocol PostModelToPostUIModelMapper {
     
-    func map(from model: PostModel) -> VideoPostUIModel?
+    func map(from model: Array<PostModel>) -> Array<VideoPostUIModel>
     
 }

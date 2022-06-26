@@ -7,14 +7,8 @@
 
 public enum DatabaseError: Error {
     
-    case unableToInitialize
+    case unableToRead(String)
     
-    case unableToStore
-    
-    case needMigration
-    
-    init(_ error: Error) {
-        self = .needMigration
-    }
-    
+    case unableToWrite(String)
+        
 }

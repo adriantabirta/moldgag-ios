@@ -12,4 +12,6 @@ protocol ImageCacheService {
     
     func cacheImage(for url: URL) -> AnyPublisher<Optional<UIImage>, Never>
     
+    func deleteAllCache() -> AnyPublisher<Void, Never>
+    
 }

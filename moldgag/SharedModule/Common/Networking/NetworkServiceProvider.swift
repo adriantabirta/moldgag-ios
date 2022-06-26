@@ -8,6 +8,17 @@
 import Combine
 import Foundation
 
+let posts = [
+    VideoPostUIModel(type: PostType.adBanner, url: URL(string: "https://img1.10bestmedia.com/Images/Photos/379865/Alaska---Forget-me-not_54_990x660.jpg")!),
+    VideoPostUIModel(type: PostType.image, url: URL(string: "https://photovideocreative.com/wordpress/wp-content/uploads/2017/11/Paysage-en-orientation-portrait.jpg")!),
+    VideoPostUIModel(type: PostType.video, url: URL(string: "https://i.imgur.com/LdP8WkB.mp4")!),
+    VideoPostUIModel(type: PostType.video, url: URL(string: "http://www.exit109.com/~dnn/clips/RW20seconds_2.mp4")!),
+    VideoPostUIModel(type: PostType.video, url: URL(string: "https://i.imgur.com/9R6zXD1.mp4")!),
+    VideoPostUIModel(type: PostType.video, url: URL(string: "https://i.imgur.com/veyJFra.mp4")!),
+    VideoPostUIModel(type: PostType.video, url: URL(string: "https://i.imgur.com/5iSFBPS.mp4")!),
+    VideoPostUIModel(type: PostType.image, url: URL(string: "https://i.imgur.com/QdTIU1Z.jpeg")!),
+]
+
 class NetworkServiceProvider<N: NetworkService> {
     
     private var urlSession: URLSession
@@ -22,17 +33,17 @@ class NetworkServiceProvider<N: NetworkService> {
     func requestMock<T: Decodable>(enpoint: N) -> AnyPublisher<T, NetworkError> {
         
         if T.self is PostsRemoteDataModel.Type {
-            let posts = [
-                VideoPostUIModel(type: PostType.adBanner, url: URL(string: "https://img1.10bestmedia.com/Images/Photos/379865/Alaska---Forget-me-not_54_990x660.jpg")!),
-                VideoPostUIModel(type: PostType.image, url: URL(string: "https://photovideocreative.com/wordpress/wp-content/uploads/2017/11/Paysage-en-orientation-portrait.jpg")!),
-                VideoPostUIModel(type: PostType.video, url: URL(string: "http://www.exit109.com/~dnn/clips/RW20seconds_1.mp4")!),
-                VideoPostUIModel(type: PostType.video, url: URL(string: "http://www.exit109.com/~dnn/clips/RW20seconds_2.mp4")!),
-                //                VideoPostUIModel(type: PostType.video, url: URL(string: "https://moldgag.fra1.digitaloceanspaces.com/staging/china.mp4")!)
-            ].map({ PostRemoteDataModel(id: $0.id, type: $0.type.rawValue, url: $0.url.absoluteString) })
+            let data = posts
+                .map({ PostRemoteDataModel(id: $0.id, type: $0.type.rawValue, url: $0.url.absoluteString) })
                 .shuffled()
             
-            return Just(PostsRemoteDataModel(posts: posts) as! T)
+            return Just(PostsRemoteDataModel(posts: data) as! T)
                 .delay(for: 2, scheduler: RunLoop.current)
+                .setFailureType(to: NetworkError.self)
+                .eraseToAnyPublisher()
+        } else if T.self is PostRemoteDataModel.Type {
+            return Just(PostRemoteDataModel(id: "-1", type: "image", url: "url-mock") as! T)
+                .delay(for: 1, scheduler: RunLoop.current)
                 .setFailureType(to: NetworkError.self)
                 .eraseToAnyPublisher()
         } else {

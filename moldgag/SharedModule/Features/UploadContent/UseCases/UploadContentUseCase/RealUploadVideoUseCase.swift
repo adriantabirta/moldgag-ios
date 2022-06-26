@@ -42,9 +42,7 @@ extension RealUploadContentUseCase: UploadContentUseCase {
             },
          */
         
-        return uploadContentRemoteDataSource
-            .upload(url: url, postType: postType)
-            .eraseToAnyPublisher()
+        return uploadContentRemoteDataSource.upload(url: url, postType: postType).eraseToAnyPublisher()
         
         
     }

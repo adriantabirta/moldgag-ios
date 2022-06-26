@@ -5,6 +5,7 @@
 //  Created by Adrian Tabirta on 16.03.2022.
 //
 
+import Combine
 import Foundation
 
 protocol VideoCacheService {
@@ -13,6 +14,6 @@ protocol VideoCacheService {
     
     func precacheUrls(_ urls: Array<URL>)
     
-    func deleteAllCache()
+    func deleteAllCache() -> AnyPublisher<Void, Never>
     
 }
