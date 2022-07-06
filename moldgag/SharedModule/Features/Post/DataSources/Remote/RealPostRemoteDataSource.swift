@@ -26,10 +26,7 @@ class RealPostRemoteDataSource {
 extension RealPostRemoteDataSource: PostRemoteDataSource {
     
     func getPosts(for page: Int) -> AnyPublisher<PostsRemoteDataModel, ApplicationError> {
-//        let request: AnyPublisher<PostsRemoteDataModel, ApplicationError> = networkServiceProvider.requestMock(enpoint: .posts(page: page))
-//        return request.eraseToAnyPublisher()
-        
-        return networkServiceProvider.requestMock(enpoint: .posts(page: page))
+        networkServiceProvider.requestMock(enpoint: .posts(page: page))
             .mapError { ApplicationError.network($0) }
             .eraseToAnyPublisher()
     }

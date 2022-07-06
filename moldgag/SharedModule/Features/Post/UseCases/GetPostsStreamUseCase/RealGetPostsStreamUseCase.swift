@@ -21,6 +21,6 @@ class RealGetPostsStreamUseCase {
 extension RealGetPostsStreamUseCase: GetPostsStreamUseCase {
     
     func execute() -> AnyPublisher<Array<PostModel>, Never> {
-        postRepository.getPosts()
+        postRepository.postsStream()
     }
 }

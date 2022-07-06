@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PostLocalDataModel: Codable {
+struct PostLocalDataModel: Codable, Hashable {
     
     let id: String
     

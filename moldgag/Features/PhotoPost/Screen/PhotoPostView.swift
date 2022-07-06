@@ -13,7 +13,7 @@ class PhotoPostView: GenericPostView {
     
     // MARK: - Dependencies
     
-    @Injected var imageCacheService: ImageCacheService
+    @Injected var getImageUseCase: GetImageUseCase
     
     // MARK: - Propreties
     
@@ -28,7 +28,10 @@ class PhotoPostView: GenericPostView {
         self.imageView = .init()
         super.init(genericPostViewModel: .init(postId: viewModel.photoPostUIModel.id, index: index))
         
-        imageCacheService.cacheImage(for: viewModel.url).assign(to: \.image, on: imageView).store(in: &bag)
+        getImageUseCase.execute(for: viewModel.url).receive(on: RunLoop.main).assign(to: \.image, on: imageView).store(in: &bag)
+        getImageUseCase.execute(for: viewModel.url).receive(on: RunLoop.main).compactMap { $0?.averageColor?.withAlphaComponent(0.5) }.assign(to: \.imageView.backgroundColor, on: self).store(in: &bag)
+
+        //imageCacheService.cacheImage(for: viewModel.url).assign(to: \.image, on: imageView).store(in: &bag)
     }
     
     required init?(coder: NSCoder) {
@@ -41,6 +44,6 @@ class PhotoPostView: GenericPostView {
         view.addSubview(imageView)
         
         self.imageView.contentMode = .scaleAspectFit
-        self.imageView.backgroundColor = .black
+        self.view.backgroundColor = .black
     }
 }

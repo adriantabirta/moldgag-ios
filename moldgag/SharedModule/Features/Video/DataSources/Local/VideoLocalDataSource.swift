@@ -12,7 +12,7 @@ protocol VideoLocalDataSource {
     
     func getVideoAssetFor(_ url: URL) -> AVAsset?
     
-    func saveVideoAsset(from remoteUrl: URL) -> AnyPublisher<URL, ApplicationError>
+    func saveLocallyVideo(from remoteUrl: URL)
     
     func deleteAll() -> AnyPublisher<Void, Never>
     

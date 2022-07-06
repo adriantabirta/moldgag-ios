@@ -14,7 +14,11 @@ struct RealVideoLocalDataSource {
     // MARK: - Dependencies
     
     @Injected var filenameToLocalPathMapper: FilenameToLocalPathMapper
-        
+    
+    // MARK: - Propreties
+    
+    private let queue = DispatchQueue.global(qos: .utility)
+    
 }
 
 // MARK: - VideoLocalDataSource
@@ -27,12 +31,12 @@ extension RealVideoLocalDataSource: VideoLocalDataSource {
         return AVAsset(url: localPath)
     }
     
-    func saveVideoAsset(from remoteUrl: URL) -> AnyPublisher<URL, ApplicationError> {
-        Future { promise in
+    func saveLocallyVideo(from remoteUrl: URL) {
+        queue.async {
             let asset = AVURLAsset(url: remoteUrl)
             
             if !asset.isExportable {
-                promise(.failure(ApplicationError.filesystem(.fileCannotBeExported)))
+                ApplicationError.filesystem(.fileCannotBeExported).handle()
                 return
             }
             
@@ -40,13 +44,12 @@ extension RealVideoLocalDataSource: VideoLocalDataSource {
             case let .success(composition):
                 
                 guard let exporter = AVAssetExportSession(asset: composition, presetName: AVAssetExportPresetHighestQuality) else {
-                    promise(.failure(ApplicationError.filesystem(.cannotCreateExportSession)))
+                    ApplicationError.filesystem(.cannotCreateExportSession).handle()
                     return
                 }
                 
                 guard let outputURL = filenameToLocalPathMapper.map(from: asset.url.lastPathComponent) else {
-                    print("Failed to build output url")
-                    promise(.failure(ApplicationError.filesystem(.cannotCreateLocalUrl)))
+                    ApplicationError.filesystem(.cannotCreateLocalUrl).handle()
                     return
                 }
                 
@@ -58,17 +61,17 @@ extension RealVideoLocalDataSource: VideoLocalDataSource {
                 exporter.exportAsynchronously {
                     
                     if let error = exporter.error {
-                        promise(.failure(ApplicationError.filesystem(.exporter(error))))
+                        ApplicationError.filesystem(.exporter(error)).handle()
                         return
                     }
                     
-                    promise(.success(outputURL))
+                    print("video exported with success: \(outputURL)")
                 }
                 
             case let .failure(applicationError):
-                promise(.failure(applicationError))
+                applicationError.handle()
             }
-        }.eraseToAnyPublisher()
+        }
     }
     
     func deleteAll() -> AnyPublisher<Void, Never> {

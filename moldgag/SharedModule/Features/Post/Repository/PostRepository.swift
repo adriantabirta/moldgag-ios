@@ -12,7 +12,7 @@ protocol PostRepository {
     
     func loadPosts(for page: Int) -> AnyPublisher<Void, Never>
     
-    func getPosts() -> AnyPublisher<Array<PostModel>, Never>
+    func postsStream() -> AnyPublisher<Array<PostModel>, Never>
     
     func deleteAll() -> AnyPublisher<Void, Never>
     

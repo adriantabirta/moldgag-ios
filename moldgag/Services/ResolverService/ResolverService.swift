@@ -43,7 +43,7 @@ private extension ResolverService {
         Resolver.register { RealPostLocalDataSource() as PostLocalDataSource }
         Resolver.register { RealUserAuthoriationLocalDataSource() as UserAuthoriationLocalDataSource }
         Resolver.register { RealVideoLocalDataSource() as VideoLocalDataSource }
-
+        Resolver.register { RealImageLocalDataSource() as ImageLocalDataSource }
     }
     
     func registerRemoteDataSources() {
@@ -51,6 +51,7 @@ private extension ResolverService {
         Resolver.register { RealUserAuthoriationRemoteDataSource() as UserAuthoriationRemoteDataSource }
         Resolver.register { RealUploadContentRemoteDataSource() as UploadContentRemoteDataSource }
         Resolver.register { RealPostRemoteDataSource() as PostRemoteDataSource }
+        Resolver.register { RealImageRemoteDataSource() as ImageRemoteDataSource }
     }
     
     func registerRepositories() {
@@ -58,6 +59,7 @@ private extension ResolverService {
         Resolver.register { RealUserAuthorizationRepository() as UserAuthorizationRepository }
         Resolver.register { RealUserRepository() as UserRepository }
         Resolver.register { RealVideoRepository() as VideoRepository }
+        Resolver.register { RealImageRepository() as ImageRepository }.scope(.application)
     }
     
     func registerUseCases() {
@@ -74,7 +76,8 @@ private extension ResolverService {
 
         let window = (UIApplication.shared.delegate as! PluggableApplicationDelegate).window
         Resolver.register { RealSignInWithAppleUseCase(window: window) as SignInWithAppleUseCase? }
-
+        
+        Resolver.register { RealGetImageUseCase() as GetImageUseCase }
     }
     
     
@@ -113,6 +116,5 @@ private extension ResolverService {
     
     func registerServices() {
         Resolver.register { RealLocalStorageService() as LocalStorageService }
-        Resolver.register { RealImageCacheService() as ImageCacheService }
     }
 }

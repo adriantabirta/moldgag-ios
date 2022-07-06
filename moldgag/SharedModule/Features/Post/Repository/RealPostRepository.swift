@@ -25,6 +25,10 @@ class RealPostRepository {
     
     @Injected var postRemoteDataModelToPostModelMapper: PostRemoteDataModelToPostModelMapper
     
+    // MARK: - Propreties
+
+    private let passthroughSubject = PassthroughSubject<Array<PostModel>, Never>()
+    
     private var bag = Set<AnyCancellable>()
     
 }
@@ -37,7 +41,7 @@ extension RealPostRepository: PostRepository {
         postRemoteDataSource.getPosts(for: page)
             .map({ $0.posts })
             .map({ self.postRemoteModelToPostLocalDataModelMapper.map(from: $0) })
-            .handleEvents(receiveOutput: { self.postLocalDataSource.save($0) })
+            .handleEvents(receiveOutput: { self.postLocalDataSource.upsert($0) })
             .handleEvents(receiveCompletion: { completion in
                 // handle error here
                 // error handler
@@ -47,8 +51,8 @@ extension RealPostRepository: PostRepository {
             .eraseToAnyPublisher()
     }
     
-    func getPosts() -> AnyPublisher<Array<PostModel>, Never> {
-        postLocalDataSource.getPosts()
+    func postsStream() -> AnyPublisher<Array<PostModel>, Never> {
+        postLocalDataSource.postsStream()
             .map({ $0.compactMap({ self.postLocalDataModelToPostMapper.map(from: $0) }) })
             .mapError({ ApplicationError.database($0) }) // todo: handle error
             .replaceError(with: [])

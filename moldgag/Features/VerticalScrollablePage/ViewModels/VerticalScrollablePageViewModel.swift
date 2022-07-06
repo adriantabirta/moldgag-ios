@@ -13,13 +13,13 @@ import Foundation
 class VerticalScrollablePageViewModel: ObservableObject {
     
     // MARK: - Dependencies
-        
+    
     @Injected var loadPostsForPageUseCase: LoadPostsForPageUseCase
-
+    
     @Injected var refreshPostsUseCase: RefreshPostsUseCase
-
+    
     @Injected var getPostsUseCase: GetPostsStreamUseCase
-
+    
     @Injected var postModelToPostUIModelMapper: PostModelToPostUIModelMapper
     
     @Injected var postUIModelToUIViewControllerMapper: PostUIModelToUIViewControllerMapper
@@ -29,12 +29,12 @@ class VerticalScrollablePageViewModel: ObservableObject {
     
     @Published var verticalScrollablePageUIModel: VerticalScrollablePageUIModel
     
-    @Published var items: Array<VideoPostUIModel> = .init()
+    private var items: Array<VideoPostUIModel> = .init()
     
     @Published var firstViewControllerPublished: UIViewController = .init()
     
     private var bag = Set<AnyCancellable>()
-
+    
     var isLoading: Bool = false {
         didSet {
             print("is loading \(isLoading)")
@@ -64,22 +64,24 @@ class VerticalScrollablePageViewModel: ObservableObject {
         
         onNewPosts
             .map({ self.postModelToPostUIModelMapper.map(from: $0) })
-            .handleEvents(receiveOutput: { _ in
-//                guard self.items.count == 0, let vc = self.firstViewController() else { return }
-//                self.firstViewControllerPublished = vc
-            })
-            .assign(to: &$items)
+            .sink { newPosts in
+                self.items = newPosts
+            }.store(in: &bag)
         
         
-        onNewPosts.delay(for: 0.5, scheduler: RunLoop.main).sink(receiveValue: { models in
-            guard models.count > 0, let vc = self.firstViewController() else { return }
-            self.firstViewControllerPublished = vc
-        }).store(in: &bag)
+        onNewPosts.delay(for: 0.5, scheduler: RunLoop.main)
+            .filter {
+                $0.count > 0 && $0.count <= 10 }
+            .compactMap { _ in self.firstViewController() }
+            .sink(receiveValue: { vc in
+                //            guard models.count > 0, let vc = self.firstViewController() else { return }
+                self.firstViewControllerPublished = vc
+            }).store(in: &bag)
         
-//        $items.sink { models in
-//            guard models.count == 0, let vc = self.firstViewController() else { return }
-//            self.firstViewControllerPublished = vc
-//        }
+        //        $items.sink { models in
+        //            guard models.count == 0, let vc = self.firstViewController() else { return }
+        //            self.firstViewControllerPublished = vc
+        //        }
         
         // refresh() -> getPostsUseCase.execute() -> assign to items -> set first page
         
@@ -138,6 +140,9 @@ private extension VerticalScrollablePageViewModel {
     func loadNextPage() {
         print(#function)
         currentPage = currentPage + 1
-        loadPostsForPageUseCase.execute(for: currentPage).sink(receiveValue: {}).store(in: &bag)
+        loadPostsForPageUseCase.execute(for: currentPage)
+            .receive(on: DispatchQueue.global())
+            .subscribe(on: DispatchQueue.global())
+            .sink(receiveValue: {}).store(in: &bag)
     }
 }

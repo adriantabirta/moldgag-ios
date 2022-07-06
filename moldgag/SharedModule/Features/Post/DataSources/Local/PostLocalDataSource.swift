@@ -9,9 +9,9 @@ import Combine
 
 protocol PostLocalDataSource {
     
-    func save(_ posts: Array<PostLocalDataModel>)
+    func upsert(_ posts: Array<PostLocalDataModel>)
     
-    func getPosts() -> AnyPublisher<Array<PostLocalDataModel>, DatabaseError>
+    func postsStream() -> AnyPublisher<Array<PostLocalDataModel>, DatabaseError>
     
     func deleteAll() -> AnyPublisher<Void, Never>
 }

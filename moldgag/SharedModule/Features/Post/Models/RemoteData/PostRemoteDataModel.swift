@@ -9,10 +9,12 @@ import Foundation
 
 struct PostRemoteDataModel: Decodable {
     
-    let id: String
+    let id: String = UUID().uuidString
     
     let type: String
     
     let url: String
+    
+    let score: Int = (1...1000).randomElement() ?? 1
 }
 

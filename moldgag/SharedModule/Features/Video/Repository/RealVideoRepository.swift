@@ -29,12 +29,16 @@ extension RealVideoRepository: VideoRepository {
             return localAsset
         }
         
-        videoLocalDataSource.saveVideoAsset(from: url)
-            .sink(receiveCompletion: { completion in
-                _ = completion
-            }, receiveValue: { localUrl in
-                print("video exported with sucess at: \(localUrl)")
-            }).store(in: &cancellables)
+        videoLocalDataSource.saveLocallyVideo(from: url)
+//            .receive(on: DispatchQueue.global())
+//            .subscribe(on: DispatchQueue.global())
+//            .sink(receiveCompletion: { completion in
+//                if case let .failure(error) = completion {
+//                    print("video not exported: \(error.localizedDescription)")
+//                }
+//            }, receiveValue: { localUrl in
+//                print("video exported with sucess at: \(localUrl)")
+//            }).store(in: &cancellables)
         
         return AVAsset(url: url)
     }

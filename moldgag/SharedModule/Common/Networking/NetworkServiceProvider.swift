@@ -8,15 +8,29 @@
 import Combine
 import Foundation
 
-let posts = [
-    VideoPostUIModel(type: PostType.adBanner, url: URL(string: "https://img1.10bestmedia.com/Images/Photos/379865/Alaska---Forget-me-not_54_990x660.jpg")!),
-    VideoPostUIModel(type: PostType.image, url: URL(string: "https://photovideocreative.com/wordpress/wp-content/uploads/2017/11/Paysage-en-orientation-portrait.jpg")!),
-    VideoPostUIModel(type: PostType.video, url: URL(string: "https://i.imgur.com/LdP8WkB.mp4")!),
-    VideoPostUIModel(type: PostType.video, url: URL(string: "http://www.exit109.com/~dnn/clips/RW20seconds_2.mp4")!),
-    VideoPostUIModel(type: PostType.video, url: URL(string: "https://i.imgur.com/9R6zXD1.mp4")!),
-    VideoPostUIModel(type: PostType.video, url: URL(string: "https://i.imgur.com/veyJFra.mp4")!),
-    VideoPostUIModel(type: PostType.video, url: URL(string: "https://i.imgur.com/5iSFBPS.mp4")!),
-    VideoPostUIModel(type: PostType.image, url: URL(string: "https://i.imgur.com/QdTIU1Z.jpeg")!),
+let imageUrls = [
+    "https://img1.10bestmedia.com/Images/Photos/379865/Alaska---Forget-me-not_54_990x660.jpg",
+    "https://photovideocreative.com/wordpress/wp-content/uploads/2017/11/Paysage-en-orientation-portrait.jpg",
+    "https://i.imgur.com/QdTIU1Z.jpeg",
+    "https://i.imgur.com/GKPFZBy.jpeg",
+    "https://i.imgur.com/gYOWB4l.jpeg",
+    "https://i.imgur.com/5p0H5Aw.jpeg",
+    "https://i.imgur.com/1W5N7i3.jpeg",
+    "https://i.imgur.com/TXt4BCJ.jpeg",
+    "https://i.imgur.com/qqGe1B8.jpeg"
+]
+
+let videoUrls = [
+    "https://i.imgur.com/LdP8WkB.mp4",
+    "http://www.exit109.com/~dnn/clips/RW20seconds_2.mp4",
+    "https://i.imgur.com/9R6zXD1.mp4",
+    "https://i.imgur.com/veyJFra.mp4",
+    "https://i.imgur.com/5iSFBPS.mp4",
+    "https://i.imgur.com/hEylmuu.mp4",
+    "https://i.imgur.com/vyHREFY.mp4",
+    "https://i.imgur.com/zGaSqqg.mp4",
+    "https://i.imgur.com/gr4QcLA.mp4",
+    "https://i.imgur.com/KNqJAdt.mp4"
 ]
 
 class NetworkServiceProvider<N: NetworkService> {
@@ -33,16 +47,18 @@ class NetworkServiceProvider<N: NetworkService> {
     func requestMock<T: Decodable>(enpoint: N) -> AnyPublisher<T, NetworkError> {
         
         if T.self is PostsRemoteDataModel.Type {
-            let data = posts
-                .map({ PostRemoteDataModel(id: $0.id, type: $0.type.rawValue, url: $0.url.absoluteString) })
-                .shuffled()
             
-            return Just(PostsRemoteDataModel(posts: data) as! T)
+            let images = (0...4).compactMap { _ in imageUrls.randomElement() }.map { PostRemoteDataModel(type: "image", url: $0) }
+            let videos = (0...4).compactMap { _ in videoUrls.randomElement() }.map { PostRemoteDataModel(type: "video", url: $0) }
+            let result = (images + videos).shuffled()
+            
+            return Just(PostsRemoteDataModel(posts: result) as! T)
                 .delay(for: 2, scheduler: RunLoop.current)
                 .setFailureType(to: NetworkError.self)
                 .eraseToAnyPublisher()
+            
         } else if T.self is PostRemoteDataModel.Type {
-            return Just(PostRemoteDataModel(id: "-1", type: "image", url: "url-mock") as! T)
+            return Just(PostRemoteDataModel(type: "image", url: "url-mock") as! T)
                 .delay(for: 1, scheduler: RunLoop.current)
                 .setFailureType(to: NetworkError.self)
                 .eraseToAnyPublisher()
@@ -86,6 +102,16 @@ class NetworkServiceProvider<N: NetworkService> {
                 }
             })
             .mapError({ NetworkError($0) })
+            .eraseToAnyPublisher()
+    }
+    
+    func dataRequest(_ url: URL) -> AnyPublisher<Optional<Data>, NetworkError> {
+        urlSession.dataTaskPublisher(for: url)
+            .map({ (data, response) -> Optional<Data> in
+                guard ((response as? HTTPURLResponse)?.statusCode ?? 500) < 300 else { return nil }
+                return data
+            })
+            .mapError { NetworkError($0) }
             .eraseToAnyPublisher()
     }
     

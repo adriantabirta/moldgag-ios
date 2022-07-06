@@ -8,7 +8,7 @@
 import Combine
 import Foundation
 
-let infinityValidity: Double = -1
+let infinityValidity: Double = .infinity
 
 public protocol LocalStorageService {
     
