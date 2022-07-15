@@ -29,7 +29,7 @@ class PostRepositoryMock: PostRepository {
     var invokedGetPostsCount = 0
     var stubbedGetPostsResult: AnyPublisher<Array<PostModel>, Never>!
 
-    func getPosts() -> AnyPublisher<Array<PostModel>, Never> {
+    func postsStream() -> AnyPublisher<Array<PostModel>, Never> {
         invokedGetPosts = true
         invokedGetPostsCount += 1
         return stubbedGetPostsResult

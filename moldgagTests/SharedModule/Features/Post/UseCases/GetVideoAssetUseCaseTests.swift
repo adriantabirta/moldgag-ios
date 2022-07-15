@@ -36,12 +36,12 @@ class GetVideoAssetUseCaseTests: XCTestCase {
     }
     
     func testExecuteWithSuccess() {
-        let urlStub = URL(string: "sds")!
+        let urlStub = URL(string: "https://www.some.com/file.mp4")!
         let avAssetStub = AVAsset(url: urlStub)
         videoRepository.stubbedGetVideoAssetForResult = avAssetStub
-        let asset = tested.execute(for: urlStub)
+        let result = tested.execute(for: urlStub)
      
-        
+        XCTAssertEqual((result as! AVURLAsset).url, (avAssetStub as! AVURLAsset).url , "Should be called only once.")
         XCTAssertEqual(videoRepository.invokedGetVideoAssetForCount, 1, "Should be called only once.")
     }
     

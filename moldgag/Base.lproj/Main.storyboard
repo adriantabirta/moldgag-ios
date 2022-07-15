@@ -23,7 +23,7 @@
         <!--Create Post Part One View-->
         <scene sceneID="dPg-iu-Mtg">
             <objects>
-                <viewController storyboardIdentifier="CreatePostView" id="e1I-S7-Zie" customClass="CreatePostPartOneView" customModule="moldgag" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreatePostPartOneView" id="e1I-S7-Zie" customClass="CreatePostPartOneView" customModule="moldgag" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wCh-7X-o36">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -116,7 +116,7 @@
         <!--Create Post Part Two View-->
         <scene sceneID="04n-Jf-uMd">
             <objects>
-                <viewController storyboardIdentifier="CreatePostPart2View" id="Njt-Kn-suk" customClass="CreatePostPartTwoView" customModule="moldgag" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreatePostPartTwoView" id="Njt-Kn-suk" customClass="CreatePostPartTwoView" customModule="moldgag" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hqc-5h-nHn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

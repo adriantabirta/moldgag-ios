@@ -16,7 +16,6 @@ extension Resolver {
         Resolver.root = .test
         test.register { FilenameToLocalPathMapperMock() as FilenameToLocalPathMapper }.scope(.cached)
         test.register { RealLocalStorageService() as LocalStorageService }.scope(.cached)
-        test.register { ImageCacheServiceMock() as ImageCacheService }.scope(.cached)
 
         registerLocalDataSources()
         registerRemoteDataSources()

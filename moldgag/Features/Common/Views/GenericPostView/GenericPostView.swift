@@ -128,10 +128,15 @@ extension GenericPostView {
             alert.dismiss(animated: true) {
                 
                 DispatchQueue.main.async {
-                    let vc = CreatePostPartOneView()
+//                    let vc = CreatePostPartOneView()
+                    let vc = GenericVideoPicker()
+                    vc.allowsEditing = true
+
 //                    let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CreatePostViewController")
 //                    self.navigationController?.pushViewController(vc, animated: true)
-                    (self.view.window?.rootViewController as! UINavigationController).pushViewController(vc, animated: true)
+                    
+
+                    (self.view.window?.rootViewController as! UINavigationController).children.first?.present(vc, animated: true)//.pushViewController(vc, animated: true)
                 }
             }
         })

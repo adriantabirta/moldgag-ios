@@ -76,16 +76,12 @@
 		6254BBD92844CB12005A9BB8 /* RealFilenameToLocalPathMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6254BBD82844CB12005A9BB8 /* RealFilenameToLocalPathMapper.swift */; };
 		6254BBDC2844CCC4005A9BB8 /* FilenameToLocalPathMapperMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6254BBDB2844CCC4005A9BB8 /* FilenameToLocalPathMapperMock.swift */; };
 		6254BBDE2844CD05005A9BB8 /* FilenameToLocalPathMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6254BBD62844CACF005A9BB8 /* FilenameToLocalPathMapper.swift */; };
-		6254BBE12844D1EA005A9BB8 /* ImageCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6254BBE02844D1EA005A9BB8 /* ImageCacheService.swift */; };
-		6254BBE32844D230005A9BB8 /* RealImageCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6254BBE22844D230005A9BB8 /* RealImageCacheService.swift */; };
 		6254BBEC2844EA16005A9BB8 /* AudioSessionVolumeMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6254BBEB2844EA16005A9BB8 /* AudioSessionVolumeMonitor.swift */; };
 		626C3EA42868D61D000F2C47 /* DeleteAllPostsUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626C3EA32868D61D000F2C47 /* DeleteAllPostsUseCaseTests.swift */; };
 		626C3EA72868D6F0000F2C47 /* ImageCacheServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626C3EA62868D6F0000F2C47 /* ImageCacheServiceMock.swift */; };
 		626C3EAB2868DA2A000F2C47 /* RealGetPostsStreamUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626C3EA92868DA2A000F2C47 /* RealGetPostsStreamUseCase.swift */; };
 		626C3EAC2868DA2A000F2C47 /* GetPostsStreamUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626C3EAA2868DA2A000F2C47 /* GetPostsStreamUseCase.swift */; };
-		627616D52849129C00502AC0 /* CreatePostPartOneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627616D42849129C00502AC0 /* CreatePostPartOneView.swift */; };
 		627616D628491CD000502AC0 /* PluggableApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E2812F27F39B4A005BE178 /* PluggableApplicationDelegate.swift */; };
-		627616DA284CE79200502AC0 /* CreatePostPartOneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627616D9284CE79200502AC0 /* CreatePostPartOneViewModel.swift */; };
 		627616DD284CE90600502AC0 /* CreatePostUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627616DC284CE90600502AC0 /* CreatePostUseCase.swift */; };
 		627616DF284CE93D00502AC0 /* RealCreatePostUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627616DE284CE93D00502AC0 /* RealCreatePostUseCase.swift */; };
 		627616E3284CF1D200502AC0 /* RealPostRemoteDataModelToPostModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627616E1284CF1D200502AC0 /* RealPostRemoteDataModelToPostModelMapper.swift */; };
@@ -106,6 +102,15 @@
 		629040212868DDAD00DAE52B /* VideoLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629040202868DDAD00DAE52B /* VideoLocalDataSource.swift */; };
 		629040232868DDDC00DAE52B /* RealVideoLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629040222868DDDC00DAE52B /* RealVideoLocalDataSource.swift */; };
 		629040252868E3A100DAE52B /* FilesystemError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629040242868E3A100DAE52B /* FilesystemError.swift */; };
+		62A3E8DC2880C70000D0D93D /* CreateVideoPostCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A3E8DB2880C70000D0D93D /* CreateVideoPostCoordinator.swift */; };
+		62A3E8DF2880C84C00D0D93D /* GenericCreatePostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A3E8DE2880C84C00D0D93D /* GenericCreatePostView.swift */; };
+		62A3E8E42880C8A600D0D93D /* ContentPickedDictionaryToImageUrlMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A3E8E32880C8A600D0D93D /* ContentPickedDictionaryToImageUrlMapper.swift */; };
+		62A3E8E62880C8EC00D0D93D /* RealContentPickedDictionaryToImageUrlMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A3E8E52880C8EC00D0D93D /* RealContentPickedDictionaryToImageUrlMapper.swift */; };
+		62A3E8E92880CA4B00D0D93D /* GenericCreatePostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A3E8E82880CA4B00D0D93D /* GenericCreatePostViewModel.swift */; };
+		62A3E8EC2880CC9300D0D93D /* CreatePhotoPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A3E8EB2880CC9300D0D93D /* CreatePhotoPostView.swift */; };
+		62A3E8EF28813EB600D0D93D /* CreatePhotoPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A3E8EE28813EB600D0D93D /* CreatePhotoPostViewModel.swift */; };
+		62A3E8F228813FD000D0D93D /* GenericImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A3E8F128813FD000D0D93D /* GenericImagePicker.swift */; };
+		62A3E8F62881427900D0D93D /* CreatePhotoPostCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A3E8F52881427900D0D93D /* CreatePhotoPostCoordinator.swift */; };
 		62A6CC7C286867CA00A93352 /* UploadResponseRemoteDataModelStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A6CC7B286867CA00A93352 /* UploadResponseRemoteDataModelStub.swift */; };
 		62A6CC7F28686B4700A93352 /* PostRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A6CC7E28686B4700A93352 /* PostRepositoryMock.swift */; };
 		62A6CC8128686BA400A93352 /* PostModelStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A6CC8028686BA400A93352 /* PostModelStub.swift */; };
@@ -148,6 +153,12 @@
 		62C6300B286861DA009C294C /* CreatePostUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C6300A286861DA009C294C /* CreatePostUseCaseTests.swift */; };
 		62C6300F286862A4009C294C /* UploadContentUseCaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C6300E286862A4009C294C /* UploadContentUseCaseMock.swift */; };
 		62C63012286862CC009C294C /* PostRemoteDataModelToPostModelMapperMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C63011286862CC009C294C /* PostRemoteDataModelToPostModelMapperMock.swift */; };
+		62D0C00F2880AB82009DFE39 /* CreateVideoPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D0C00E2880AB82009DFE39 /* CreateVideoPostView.swift */; };
+		62D0C0112880ABD1009DFE39 /* GenericVideoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D0C0102880ABD1009DFE39 /* GenericVideoPicker.swift */; };
+		62D0C0162880B3EE009DFE39 /* CreateVideoPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D0C0152880B3EE009DFE39 /* CreateVideoPostViewModel.swift */; };
+		62D0C0192880B4A1009DFE39 /* ContentPickedDictionaryToVideoUrlMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D0C0182880B4A1009DFE39 /* ContentPickedDictionaryToVideoUrlMapper.swift */; };
+		62D0C01B2880B4C8009DFE39 /* RealContentPickedDictionaryToVideoUrlMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D0C01A2880B4C8009DFE39 /* RealContentPickedDictionaryToVideoUrlMapper.swift */; };
+		62D0C0202880C0BB009DFE39 /* NextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D0C01F2880C0BB009DFE39 /* NextButton.swift */; };
 		62E2154B2868C907008E6AF3 /* RealFilenameToLocalPathMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E2154A2868C907008E6AF3 /* RealFilenameToLocalPathMapperTests.swift */; };
 		62E2154D2868D243008E6AF3 /* RefreshPostsUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E2154C2868D243008E6AF3 /* RefreshPostsUseCaseTests.swift */; };
 		62E215502868D36B008E6AF3 /* DeleteAllPostsUseCaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E2154F2868D36B008E6AF3 /* DeleteAllPostsUseCaseMock.swift */; };
@@ -160,6 +171,15 @@
 		62E2812C27EBB58A005BE178 /* AdvertisingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E2812B27EBB58A005BE178 /* AdvertisingViewModel.swift */; };
 		62E2813027F39B4A005BE178 /* PluggableApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E2812F27F39B4A005BE178 /* PluggableApplicationDelegate.swift */; };
 		62E2813227F3A1F3005BE178 /* GlobalNavigationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E2813127F3A1F3005BE178 /* GlobalNavigationService.swift */; };
+		62E83747287617B700374F20 /* GetImageUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E83746287617B700374F20 /* GetImageUseCase.swift */; };
+		62E83749287617FE00374F20 /* RealGetImageUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E83748287617FE00374F20 /* RealGetImageUseCase.swift */; };
+		62E8374C287618CB00374F20 /* ImageRepositoy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E8374B287618CB00374F20 /* ImageRepositoy.swift */; };
+		62E8374E287618FB00374F20 /* RealImageRepositoy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E8374D287618FB00374F20 /* RealImageRepositoy.swift */; };
+		62E83752287619CF00374F20 /* ImageLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E83751287619CF00374F20 /* ImageLocalDataSource.swift */; };
+		62E8375428761A0E00374F20 /* RealImageLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E8375328761A0E00374F20 /* RealImageLocalDataSource.swift */; };
+		62E8375728761CB200374F20 /* ImageRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E8375628761CB200374F20 /* ImageRemoteDataSource.swift */; };
+		62E8375928761D1300374F20 /* RealImageRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E8375828761D1300374F20 /* RealImageRemoteDataSource.swift */; };
+		62E8375B287631EA00374F20 /* LoopVideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E8375A287631EA00374F20 /* LoopVideoPlayerView.swift */; };
 		62F772D22847D55C00D84337 /* GetUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F772D12847D55C00D84337 /* GetUserUseCase.swift */; };
 		62F772D42847D57E00D84337 /* RealGetUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F772D32847D57E00D84337 /* RealGetUserUseCase.swift */; };
 		62F772D72847D65300D84337 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F772D62847D65300D84337 /* UserRepository.swift */; };
@@ -175,14 +195,8 @@
 		62F772FD284905C300D84337 /* UploadContentRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F772FC284905C300D84337 /* UploadContentRemoteDataSource.swift */; };
 		62F772FF284905F800D84337 /* RealUploadContentRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F772FE284905F800D84337 /* RealUploadContentRemoteDataSource.swift */; };
 		62F7730428490C8B00D84337 /* UploadResponseRemoteDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F7730328490C8B00D84337 /* UploadResponseRemoteDataModel.swift */; };
-		62F8D0CB284CF5530004A7CD /* ContentPickedDictionaryToContentToupleMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F8D0CA284CF5530004A7CD /* ContentPickedDictionaryToContentToupleMapper.swift */; };
-		62F8D0CD284CF58A0004A7CD /* RealContentPickedDictionaryToContentToupleMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F8D0CC284CF58A0004A7CD /* RealContentPickedDictionaryToContentToupleMapper.swift */; };
-		62F8D0CF284FB1190004A7CD /* CreatePostPartTwoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F8D0CE284FB1190004A7CD /* CreatePostPartTwoView.swift */; };
 		62F8D0D1284FC33F0004A7CD /* KeyboardFollower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F8D0D0284FC33F0004A7CD /* KeyboardFollower.swift */; };
-		62F8D0D3284FC9EE0004A7CD /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F8D0D2284FC9EE0004A7CD /* VideoView.swift */; };
-		62F8D0D5284FCD5F0004A7CD /* CreatePostPartTwoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F8D0D4284FCD5F0004A7CD /* CreatePostPartTwoViewModel.swift */; };
-		62F8D0D9284FCFDD0004A7CD /* CreatePostPartTwoUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F8D0D8284FCFDD0004A7CD /* CreatePostPartTwoUIModel.swift */; };
-		62F8D0DB284FD0080004A7CD /* CreatePostPartOneUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F8D0DA284FD0080004A7CD /* CreatePostPartOneUIModel.swift */; };
+		62F8D0D3284FC9EE0004A7CD /* LoopVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F8D0D2284FC9EE0004A7CD /* LoopVideoView.swift */; };
 		62F8D0DD2850E5150004A7CD /* LoadPostsForPageUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F8D0DC2850E5150004A7CD /* LoadPostsForPageUseCase.swift */; };
 /* End PBXBuildFile section */
 
@@ -261,15 +275,11 @@
 		6254BBD62844CACF005A9BB8 /* FilenameToLocalPathMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilenameToLocalPathMapper.swift; sourceTree = "<group>"; };
 		6254BBD82844CB12005A9BB8 /* RealFilenameToLocalPathMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealFilenameToLocalPathMapper.swift; sourceTree = "<group>"; };
 		6254BBDB2844CCC4005A9BB8 /* FilenameToLocalPathMapperMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilenameToLocalPathMapperMock.swift; sourceTree = "<group>"; };
-		6254BBE02844D1EA005A9BB8 /* ImageCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheService.swift; sourceTree = "<group>"; };
-		6254BBE22844D230005A9BB8 /* RealImageCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealImageCacheService.swift; sourceTree = "<group>"; };
 		6254BBEB2844EA16005A9BB8 /* AudioSessionVolumeMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioSessionVolumeMonitor.swift; sourceTree = "<group>"; };
 		626C3EA32868D61D000F2C47 /* DeleteAllPostsUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAllPostsUseCaseTests.swift; sourceTree = "<group>"; };
 		626C3EA62868D6F0000F2C47 /* ImageCacheServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheServiceMock.swift; sourceTree = "<group>"; };
 		626C3EA92868DA2A000F2C47 /* RealGetPostsStreamUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealGetPostsStreamUseCase.swift; sourceTree = "<group>"; };
 		626C3EAA2868DA2A000F2C47 /* GetPostsStreamUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetPostsStreamUseCase.swift; sourceTree = "<group>"; };
-		627616D42849129C00502AC0 /* CreatePostPartOneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostPartOneView.swift; sourceTree = "<group>"; };
-		627616D9284CE79200502AC0 /* CreatePostPartOneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostPartOneViewModel.swift; sourceTree = "<group>"; };
 		627616DC284CE90600502AC0 /* CreatePostUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostUseCase.swift; sourceTree = "<group>"; };
 		627616DE284CE93D00502AC0 /* RealCreatePostUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealCreatePostUseCase.swift; sourceTree = "<group>"; };
 		627616E1284CF1D200502AC0 /* RealPostRemoteDataModelToPostModelMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealPostRemoteDataModelToPostModelMapper.swift; sourceTree = "<group>"; };
@@ -294,6 +304,15 @@
 		629040202868DDAD00DAE52B /* VideoLocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoLocalDataSource.swift; sourceTree = "<group>"; };
 		629040222868DDDC00DAE52B /* RealVideoLocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealVideoLocalDataSource.swift; sourceTree = "<group>"; };
 		629040242868E3A100DAE52B /* FilesystemError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesystemError.swift; sourceTree = "<group>"; };
+		62A3E8DB2880C70000D0D93D /* CreateVideoPostCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateVideoPostCoordinator.swift; sourceTree = "<group>"; };
+		62A3E8DE2880C84C00D0D93D /* GenericCreatePostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericCreatePostView.swift; sourceTree = "<group>"; };
+		62A3E8E32880C8A600D0D93D /* ContentPickedDictionaryToImageUrlMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentPickedDictionaryToImageUrlMapper.swift; sourceTree = "<group>"; };
+		62A3E8E52880C8EC00D0D93D /* RealContentPickedDictionaryToImageUrlMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealContentPickedDictionaryToImageUrlMapper.swift; sourceTree = "<group>"; };
+		62A3E8E82880CA4B00D0D93D /* GenericCreatePostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericCreatePostViewModel.swift; sourceTree = "<group>"; };
+		62A3E8EB2880CC9300D0D93D /* CreatePhotoPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePhotoPostView.swift; sourceTree = "<group>"; };
+		62A3E8EE28813EB600D0D93D /* CreatePhotoPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePhotoPostViewModel.swift; sourceTree = "<group>"; };
+		62A3E8F128813FD000D0D93D /* GenericImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericImagePicker.swift; sourceTree = "<group>"; };
+		62A3E8F52881427900D0D93D /* CreatePhotoPostCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePhotoPostCoordinator.swift; sourceTree = "<group>"; };
 		62A6CC7B286867CA00A93352 /* UploadResponseRemoteDataModelStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadResponseRemoteDataModelStub.swift; sourceTree = "<group>"; };
 		62A6CC7E28686B4700A93352 /* PostRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRepositoryMock.swift; sourceTree = "<group>"; };
 		62A6CC8028686BA400A93352 /* PostModelStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModelStub.swift; sourceTree = "<group>"; };
@@ -335,6 +354,12 @@
 		62C6300A286861DA009C294C /* CreatePostUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostUseCaseTests.swift; sourceTree = "<group>"; };
 		62C6300E286862A4009C294C /* UploadContentUseCaseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadContentUseCaseMock.swift; sourceTree = "<group>"; };
 		62C63011286862CC009C294C /* PostRemoteDataModelToPostModelMapperMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRemoteDataModelToPostModelMapperMock.swift; sourceTree = "<group>"; };
+		62D0C00E2880AB82009DFE39 /* CreateVideoPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateVideoPostView.swift; sourceTree = "<group>"; };
+		62D0C0102880ABD1009DFE39 /* GenericVideoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericVideoPicker.swift; sourceTree = "<group>"; };
+		62D0C0152880B3EE009DFE39 /* CreateVideoPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateVideoPostViewModel.swift; sourceTree = "<group>"; };
+		62D0C0182880B4A1009DFE39 /* ContentPickedDictionaryToVideoUrlMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentPickedDictionaryToVideoUrlMapper.swift; sourceTree = "<group>"; };
+		62D0C01A2880B4C8009DFE39 /* RealContentPickedDictionaryToVideoUrlMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealContentPickedDictionaryToVideoUrlMapper.swift; sourceTree = "<group>"; };
+		62D0C01F2880C0BB009DFE39 /* NextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButton.swift; sourceTree = "<group>"; };
 		62E2154A2868C907008E6AF3 /* RealFilenameToLocalPathMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealFilenameToLocalPathMapperTests.swift; sourceTree = "<group>"; };
 		62E2154C2868D243008E6AF3 /* RefreshPostsUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshPostsUseCaseTests.swift; sourceTree = "<group>"; };
 		62E2154F2868D36B008E6AF3 /* DeleteAllPostsUseCaseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAllPostsUseCaseMock.swift; sourceTree = "<group>"; };
@@ -347,6 +372,15 @@
 		62E2812B27EBB58A005BE178 /* AdvertisingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisingViewModel.swift; sourceTree = "<group>"; };
 		62E2812F27F39B4A005BE178 /* PluggableApplicationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluggableApplicationDelegate.swift; sourceTree = "<group>"; };
 		62E2813127F3A1F3005BE178 /* GlobalNavigationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalNavigationService.swift; sourceTree = "<group>"; };
+		62E83746287617B700374F20 /* GetImageUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetImageUseCase.swift; sourceTree = "<group>"; };
+		62E83748287617FE00374F20 /* RealGetImageUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealGetImageUseCase.swift; sourceTree = "<group>"; };
+		62E8374B287618CB00374F20 /* ImageRepositoy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRepositoy.swift; sourceTree = "<group>"; };
+		62E8374D287618FB00374F20 /* RealImageRepositoy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealImageRepositoy.swift; sourceTree = "<group>"; };
+		62E83751287619CF00374F20 /* ImageLocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLocalDataSource.swift; sourceTree = "<group>"; };
+		62E8375328761A0E00374F20 /* RealImageLocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealImageLocalDataSource.swift; sourceTree = "<group>"; };
+		62E8375628761CB200374F20 /* ImageRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRemoteDataSource.swift; sourceTree = "<group>"; };
+		62E8375828761D1300374F20 /* RealImageRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealImageRemoteDataSource.swift; sourceTree = "<group>"; };
+		62E8375A287631EA00374F20 /* LoopVideoPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopVideoPlayerView.swift; sourceTree = "<group>"; };
 		62F772D12847D55C00D84337 /* GetUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserUseCase.swift; sourceTree = "<group>"; };
 		62F772D32847D57E00D84337 /* RealGetUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealGetUserUseCase.swift; sourceTree = "<group>"; };
 		62F772D62847D65300D84337 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
@@ -362,14 +396,8 @@
 		62F772FC284905C300D84337 /* UploadContentRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadContentRemoteDataSource.swift; sourceTree = "<group>"; };
 		62F772FE284905F800D84337 /* RealUploadContentRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealUploadContentRemoteDataSource.swift; sourceTree = "<group>"; };
 		62F7730328490C8B00D84337 /* UploadResponseRemoteDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadResponseRemoteDataModel.swift; sourceTree = "<group>"; };
-		62F8D0CA284CF5530004A7CD /* ContentPickedDictionaryToContentToupleMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentPickedDictionaryToContentToupleMapper.swift; sourceTree = "<group>"; };
-		62F8D0CC284CF58A0004A7CD /* RealContentPickedDictionaryToContentToupleMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealContentPickedDictionaryToContentToupleMapper.swift; sourceTree = "<group>"; };
-		62F8D0CE284FB1190004A7CD /* CreatePostPartTwoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostPartTwoView.swift; sourceTree = "<group>"; };
 		62F8D0D0284FC33F0004A7CD /* KeyboardFollower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardFollower.swift; sourceTree = "<group>"; };
-		62F8D0D2284FC9EE0004A7CD /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
-		62F8D0D4284FCD5F0004A7CD /* CreatePostPartTwoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostPartTwoViewModel.swift; sourceTree = "<group>"; };
-		62F8D0D8284FCFDD0004A7CD /* CreatePostPartTwoUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostPartTwoUIModel.swift; sourceTree = "<group>"; };
-		62F8D0DA284FD0080004A7CD /* CreatePostPartOneUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostPartOneUIModel.swift; sourceTree = "<group>"; };
+		62F8D0D2284FC9EE0004A7CD /* LoopVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopVideoView.swift; sourceTree = "<group>"; };
 		62F8D0DC2850E5150004A7CD /* LoadPostsForPageUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadPostsForPageUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -482,7 +510,9 @@
 		6254BB0C28413B72005A9BB8 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				62F773052849125100D84337 /* CreatePost */,
+				62F8D0D0284FC33F0004A7CD /* KeyboardFollower.swift */,
+				62D0C00C2880AB5D009DFE39 /* CreateVideoPost */,
+				62A3E8E12880C86F00D0D93D /* CreatePhotoPost */,
 				6209CDBA28552812008285AC /* Loading */,
 				6254BB8F2842BE33005A9BB8 /* Common */,
 				6254BB952842C88B005A9BB8 /* Authentication */,
@@ -490,6 +520,9 @@
 				6254BB802842B03A005A9BB8 /* PhotoPost */,
 				6254BB0E28413F5C005A9BB8 /* VideoPost */,
 				6254BB0D28413F30005A9BB8 /* VerticalScrollablePage */,
+				62A3E8F028813FBD00D0D93D /* GenericImagePicker */,
+				62D0C0122880AF6A009DFE39 /* GenericVideoPicker */,
+				62A3E8DD2880C80B00D0D93D /* GenericCreatePost */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -497,11 +530,11 @@
 		6254BB0D28413F30005A9BB8 /* VerticalScrollablePage */ = {
 			isa = PBXGroup;
 			children = (
-				6254BB6D284165A5005A9BB8 /* ViewModels */,
-				6254BB6C2841658A005A9BB8 /* Screen */,
 				6209CDC9285538CC008285AC /* Coordinator */,
 				6254BB7328416EA1005A9BB8 /* Mappers */,
 				6254BB702841696B005A9BB8 /* Models */,
+				6254BB6D284165A5005A9BB8 /* ViewModels */,
+				6254BB6C2841658A005A9BB8 /* Screen */,
 			);
 			path = VerticalScrollablePage;
 			sourceTree = "<group>";
@@ -565,6 +598,8 @@
 		6254BB1428414117005A9BB8 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				62E837442876179100374F20 /* Image */,
+				62E8373F2875622C00374F20 /* Video */,
 				62F772EC2849009C00D84337 /* UploadContent */,
 				62B3923628474AA90049E89A /* User */,
 				62B391FE2846AA850049E89A /* Common */,
@@ -577,11 +612,11 @@
 		6254BB152841412A005A9BB8 /* Post */ = {
 			isa = PBXGroup;
 			children = (
-				6290401B2868DCE700DAE52B /* DataSources */,
 				6254BBD32844CA93005A9BB8 /* Mappers */,
-				6254BB29284143D4005A9BB8 /* Repository */,
 				6254BB1C284141E9005A9BB8 /* Enums */,
 				6254BB1728414139005A9BB8 /* Models */,
+				6290401B2868DCE700DAE52B /* DataSources */,
+				6254BB29284143D4005A9BB8 /* Repository */,
 				6254BB1628414130005A9BB8 /* UseCases */,
 			);
 			path = Post;
@@ -595,7 +630,6 @@
 				6209CDAB2850ED69008285AC /* RefreshPostsUseCase */,
 				6209CDB12850EE41008285AC /* DeleteAllPostsUseCase */,
 				626C3EA82868DA2A000F2C47 /* GetPostsStreamUseCase */,
-				6254BBB02844B205005A9BB8 /* GetVideoPostUseCase */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -648,19 +682,10 @@
 		6254BB29284143D4005A9BB8 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				629040152868DC7200DAE52B /* VideoRepository */,
-				6254BB2C2841443A005A9BB8 /* PostRepository */,
-			);
-			path = Repository;
-			sourceTree = "<group>";
-		};
-		6254BB2C2841443A005A9BB8 /* PostRepository */ = {
-			isa = PBXGroup;
-			children = (
 				6254BB2A28414434005A9BB8 /* PostRepository.swift */,
 				6254BB35284145EB005A9BB8 /* RealPostRepository.swift */,
 			);
-			path = PostRepository;
+			path = Repository;
 			sourceTree = "<group>";
 		};
 		6254BB3B284146AA005A9BB8 /* LocalData */ = {
@@ -909,15 +934,6 @@
 			path = AVPlayerExtensions;
 			sourceTree = "<group>";
 		};
-		6254BBB02844B205005A9BB8 /* GetVideoPostUseCase */ = {
-			isa = PBXGroup;
-			children = (
-				6254BBB12844B217005A9BB8 /* GetVideoAssetUseCase.swift */,
-				6254BBB32844B267005A9BB8 /* RealGetVideoAssetUseCase.swift */,
-			);
-			path = GetVideoPostUseCase;
-			sourceTree = "<group>";
-		};
 		6254BBB92844B859005A9BB8 /* SharedModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -971,15 +987,6 @@
 			path = Mappers;
 			sourceTree = "<group>";
 		};
-		6254BBDF2844D1DF005A9BB8 /* ImageCacheService */ = {
-			isa = PBXGroup;
-			children = (
-				6254BBE02844D1EA005A9BB8 /* ImageCacheService.swift */,
-				6254BBE22844D230005A9BB8 /* RealImageCacheService.swift */,
-			);
-			path = ImageCacheService;
-			sourceTree = "<group>";
-		};
 		626C3EA82868DA2A000F2C47 /* GetPostsStreamUseCase */ = {
 			isa = PBXGroup;
 			children = (
@@ -999,15 +1006,6 @@
 				6254BBB72844B6D6005A9BB8 /* URL+.swift */,
 			);
 			path = Extentions;
-			sourceTree = "<group>";
-		};
-		627616D8284CE78600502AC0 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				627616D9284CE79200502AC0 /* CreatePostPartOneViewModel.swift */,
-				62F8D0D4284FCD5F0004A7CD /* CreatePostPartTwoViewModel.swift */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		627616DB284CE8F500502AC0 /* CreatePostUseCase */ = {
@@ -1053,6 +1051,7 @@
 				6279BE2A27C14885009EE96E /* AppDelegate.swift */,
 				6254BB13284140FE005A9BB8 /* SharedModule */,
 				6254BB0C28413B72005A9BB8 /* Features */,
+				62D0C01C2880C095009DFE39 /* Styleguide */,
 				62E280FC27E234A3005BE178 /* Services */,
 				6279BE3027C14885009EE96E /* Main.storyboard */,
 				6279BE3327C14889009EE96E /* Assets.xcassets */,
@@ -1073,24 +1072,6 @@
 			path = moldgagTests;
 			sourceTree = "<group>";
 		};
-		629040152868DC7200DAE52B /* VideoRepository */ = {
-			isa = PBXGroup;
-			children = (
-				629040162868DC8100DAE52B /* VideoRepository.swift */,
-				629040182868DCA700DAE52B /* RealVideoRepository.swift */,
-			);
-			path = VideoRepository;
-			sourceTree = "<group>";
-		};
-		6290401A2868DCDF00DAE52B /* PostLocalDataSource */ = {
-			isa = PBXGroup;
-			children = (
-				6254BB392841466F005A9BB8 /* PostLocalDataSource.swift */,
-				6254BB3E28414822005A9BB8 /* RealPostLocalDataSource.swift */,
-			);
-			path = PostLocalDataSource;
-			sourceTree = "<group>";
-		};
 		6290401B2868DCE700DAE52B /* DataSources */ = {
 			isa = PBXGroup;
 			children = (
@@ -1103,7 +1084,8 @@
 		6290401C2868DCED00DAE52B /* Remote */ = {
 			isa = PBXGroup;
 			children = (
-				6290401E2868DD0800DAE52B /* PostRemoteDataSource */,
+				6254BB40284148C3005A9BB8 /* PostRemoteDataSource.swift */,
+				6254BB5228414FD6005A9BB8 /* RealPostRemoteDataSource.swift */,
 			);
 			path = Remote;
 			sourceTree = "<group>";
@@ -1111,28 +1093,95 @@
 		6290401D2868DCF600DAE52B /* Local */ = {
 			isa = PBXGroup;
 			children = (
-				6290401F2868DD8D00DAE52B /* VideoLocalDataSource */,
-				6290401A2868DCDF00DAE52B /* PostLocalDataSource */,
+				6254BB392841466F005A9BB8 /* PostLocalDataSource.swift */,
+				6254BB3E28414822005A9BB8 /* RealPostLocalDataSource.swift */,
 			);
 			path = Local;
 			sourceTree = "<group>";
 		};
-		6290401E2868DD0800DAE52B /* PostRemoteDataSource */ = {
+		62A3E8DD2880C80B00D0D93D /* GenericCreatePost */ = {
 			isa = PBXGroup;
 			children = (
-				6254BB40284148C3005A9BB8 /* PostRemoteDataSource.swift */,
-				6254BB5228414FD6005A9BB8 /* RealPostRemoteDataSource.swift */,
+				62A3E8E72880CA4300D0D93D /* ViewModel */,
+				62A3E8E02880C84F00D0D93D /* Screen */,
 			);
-			path = PostRemoteDataSource;
+			path = GenericCreatePost;
 			sourceTree = "<group>";
 		};
-		6290401F2868DD8D00DAE52B /* VideoLocalDataSource */ = {
+		62A3E8E02880C84F00D0D93D /* Screen */ = {
 			isa = PBXGroup;
 			children = (
-				629040202868DDAD00DAE52B /* VideoLocalDataSource.swift */,
-				629040222868DDDC00DAE52B /* RealVideoLocalDataSource.swift */,
+				62A3E8DE2880C84C00D0D93D /* GenericCreatePostView.swift */,
 			);
-			path = VideoLocalDataSource;
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		62A3E8E12880C86F00D0D93D /* CreatePhotoPost */ = {
+			isa = PBXGroup;
+			children = (
+				62A3E8F42881426C00D0D93D /* Coordinate */,
+				62A3E8E22880C89F00D0D93D /* Mapper */,
+				62A3E8ED28813EA900D0D93D /* ViewModel */,
+				62A3E8EA2880CC8B00D0D93D /* Screen */,
+			);
+			path = CreatePhotoPost;
+			sourceTree = "<group>";
+		};
+		62A3E8E22880C89F00D0D93D /* Mapper */ = {
+			isa = PBXGroup;
+			children = (
+				62A3E8E32880C8A600D0D93D /* ContentPickedDictionaryToImageUrlMapper.swift */,
+				62A3E8E52880C8EC00D0D93D /* RealContentPickedDictionaryToImageUrlMapper.swift */,
+			);
+			path = Mapper;
+			sourceTree = "<group>";
+		};
+		62A3E8E72880CA4300D0D93D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				62A3E8E82880CA4B00D0D93D /* GenericCreatePostViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		62A3E8EA2880CC8B00D0D93D /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				62A3E8EB2880CC9300D0D93D /* CreatePhotoPostView.swift */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		62A3E8ED28813EA900D0D93D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				62A3E8EE28813EB600D0D93D /* CreatePhotoPostViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		62A3E8F028813FBD00D0D93D /* GenericImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				62A3E8F32881410700D0D93D /* Screen */,
+			);
+			path = GenericImagePicker;
+			sourceTree = "<group>";
+		};
+		62A3E8F32881410700D0D93D /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				62A3E8F128813FD000D0D93D /* GenericImagePicker.swift */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		62A3E8F42881426C00D0D93D /* Coordinate */ = {
+			isa = PBXGroup;
+			children = (
+				62A3E8F52881427900D0D93D /* CreatePhotoPostCoordinator.swift */,
+			);
+			path = Coordinate;
 			sourceTree = "<group>";
 		};
 		62A6CC7A286867C400A93352 /* Stubs */ = {
@@ -1507,13 +1556,105 @@
 			path = Mappers;
 			sourceTree = "<group>";
 		};
+		62D0C00C2880AB5D009DFE39 /* CreateVideoPost */ = {
+			isa = PBXGroup;
+			children = (
+				62D0C0222880C6E1009DFE39 /* Coordinator */,
+				62D0C0212880C6C0009DFE39 /* Mapper */,
+				62F8D0D6284FCDF50004A7CD /* Views */,
+				62D0C0142880B3E8009DFE39 /* ViewModel */,
+				62D0C00D2880AB68009DFE39 /* Screen */,
+			);
+			path = CreateVideoPost;
+			sourceTree = "<group>";
+		};
+		62D0C00D2880AB68009DFE39 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				62D0C00E2880AB82009DFE39 /* CreateVideoPostView.swift */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		62D0C0122880AF6A009DFE39 /* GenericVideoPicker */ = {
+			isa = PBXGroup;
+			children = (
+				62D0C0132880AF71009DFE39 /* Screen */,
+			);
+			path = GenericVideoPicker;
+			sourceTree = "<group>";
+		};
+		62D0C0132880AF71009DFE39 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				62D0C0102880ABD1009DFE39 /* GenericVideoPicker.swift */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		62D0C0142880B3E8009DFE39 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				62D0C0152880B3EE009DFE39 /* CreateVideoPostViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		62D0C0172880B482009DFE39 /* ContentPickedDictionaryToUrlMapper */ = {
+			isa = PBXGroup;
+			children = (
+				62D0C0182880B4A1009DFE39 /* ContentPickedDictionaryToVideoUrlMapper.swift */,
+				62D0C01A2880B4C8009DFE39 /* RealContentPickedDictionaryToVideoUrlMapper.swift */,
+			);
+			path = ContentPickedDictionaryToUrlMapper;
+			sourceTree = "<group>";
+		};
+		62D0C01C2880C095009DFE39 /* Styleguide */ = {
+			isa = PBXGroup;
+			children = (
+				62D0C01D2880C0A1009DFE39 /* Components */,
+			);
+			path = Styleguide;
+			sourceTree = "<group>";
+		};
+		62D0C01D2880C0A1009DFE39 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				62D0C01E2880C0AE009DFE39 /* NextButton */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		62D0C01E2880C0AE009DFE39 /* NextButton */ = {
+			isa = PBXGroup;
+			children = (
+				62D0C01F2880C0BB009DFE39 /* NextButton.swift */,
+			);
+			path = NextButton;
+			sourceTree = "<group>";
+		};
+		62D0C0212880C6C0009DFE39 /* Mapper */ = {
+			isa = PBXGroup;
+			children = (
+				62D0C0172880B482009DFE39 /* ContentPickedDictionaryToUrlMapper */,
+			);
+			path = Mapper;
+			sourceTree = "<group>";
+		};
+		62D0C0222880C6E1009DFE39 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				62A3E8DB2880C70000D0D93D /* CreateVideoPostCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 		62E280FC27E234A3005BE178 /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				62C62FE428684DB0009C294C /* GlobalNavigationService */,
 				62C62FE328684DA5009C294C /* ResolverService */,
 				62C62FE228684D9A009C294C /* AudioSessionVolumeMonitor */,
-				6254BBDF2844D1DF005A9BB8 /* ImageCacheService */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1525,6 +1666,106 @@
 				6254BB932842C76A005A9BB8 /* Screen */,
 			);
 			path = AdvertisingPost;
+			sourceTree = "<group>";
+		};
+		62E8373F2875622C00374F20 /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				62E837422875626A00374F20 /* DataSources */,
+				62E837412875625400374F20 /* Repository */,
+				62E837402875624500374F20 /* UseCase */,
+			);
+			path = Video;
+			sourceTree = "<group>";
+		};
+		62E837402875624500374F20 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				6254BBB12844B217005A9BB8 /* GetVideoAssetUseCase.swift */,
+				6254BBB32844B267005A9BB8 /* RealGetVideoAssetUseCase.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		62E837412875625400374F20 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				629040162868DC8100DAE52B /* VideoRepository.swift */,
+				629040182868DCA700DAE52B /* RealVideoRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		62E837422875626A00374F20 /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				62E837432875627900374F20 /* Local */,
+			);
+			path = DataSources;
+			sourceTree = "<group>";
+		};
+		62E837432875627900374F20 /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				629040202868DDAD00DAE52B /* VideoLocalDataSource.swift */,
+				629040222868DDDC00DAE52B /* RealVideoLocalDataSource.swift */,
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		62E837442876179100374F20 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				62E8374F287619B500374F20 /* Datasources */,
+				62E8374A287618BF00374F20 /* Repository */,
+				62E837452876179700374F20 /* GetImageUseCase */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		62E837452876179700374F20 /* GetImageUseCase */ = {
+			isa = PBXGroup;
+			children = (
+				62E83746287617B700374F20 /* GetImageUseCase.swift */,
+				62E83748287617FE00374F20 /* RealGetImageUseCase.swift */,
+			);
+			path = GetImageUseCase;
+			sourceTree = "<group>";
+		};
+		62E8374A287618BF00374F20 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				62E8374B287618CB00374F20 /* ImageRepositoy.swift */,
+				62E8374D287618FB00374F20 /* RealImageRepositoy.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		62E8374F287619B500374F20 /* Datasources */ = {
+			isa = PBXGroup;
+			children = (
+				62E8375528761CA600374F20 /* Remote */,
+				62E83750287619BB00374F20 /* Local */,
+			);
+			path = Datasources;
+			sourceTree = "<group>";
+		};
+		62E83750287619BB00374F20 /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				62E83751287619CF00374F20 /* ImageLocalDataSource.swift */,
+				62E8375328761A0E00374F20 /* RealImageLocalDataSource.swift */,
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		62E8375528761CA600374F20 /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				62E8375628761CB200374F20 /* ImageRemoteDataSource.swift */,
+				62E8375828761D1300374F20 /* RealImageRemoteDataSource.swift */,
+			);
+			path = Remote;
 			sourceTree = "<group>";
 		};
 		62F772D52847D63800D84337 /* Repository */ = {
@@ -1621,52 +1862,13 @@
 			path = RemoteDataModel;
 			sourceTree = "<group>";
 		};
-		62F773052849125100D84337 /* CreatePost */ = {
-			isa = PBXGroup;
-			children = (
-				62F8D0D0284FC33F0004A7CD /* KeyboardFollower.swift */,
-				62F8D0D7284FCFC70004A7CD /* Models */,
-				62F8D0D6284FCDF50004A7CD /* Views */,
-				62F8D0C9284CF5250004A7CD /* Mappers */,
-				627616D8284CE78600502AC0 /* ViewModel */,
-				62F773062849126F00D84337 /* Screen */,
-			);
-			path = CreatePost;
-			sourceTree = "<group>";
-		};
-		62F773062849126F00D84337 /* Screen */ = {
-			isa = PBXGroup;
-			children = (
-				627616D42849129C00502AC0 /* CreatePostPartOneView.swift */,
-				62F8D0CE284FB1190004A7CD /* CreatePostPartTwoView.swift */,
-			);
-			path = Screen;
-			sourceTree = "<group>";
-		};
-		62F8D0C9284CF5250004A7CD /* Mappers */ = {
-			isa = PBXGroup;
-			children = (
-				62F8D0CA284CF5530004A7CD /* ContentPickedDictionaryToContentToupleMapper.swift */,
-				62F8D0CC284CF58A0004A7CD /* RealContentPickedDictionaryToContentToupleMapper.swift */,
-			);
-			path = Mappers;
-			sourceTree = "<group>";
-		};
 		62F8D0D6284FCDF50004A7CD /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				62F8D0D2284FC9EE0004A7CD /* VideoView.swift */,
+				62F8D0D2284FC9EE0004A7CD /* LoopVideoView.swift */,
+				62E8375A287631EA00374F20 /* LoopVideoPlayerView.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		62F8D0D7284FCFC70004A7CD /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				62F8D0D8284FCFDD0004A7CD /* CreatePostPartTwoUIModel.swift */,
-				62F8D0DA284FD0080004A7CD /* CreatePostPartOneUIModel.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1780,54 +1982,62 @@
 			files = (
 				6254BB7628416EC9005A9BB8 /* PostUIModelToUIViewControllerMapper.swift in Sources */,
 				62E2812C27EBB58A005BE178 /* AdvertisingViewModel.swift in Sources */,
+				62A3E8DF2880C84C00D0D93D /* GenericCreatePostView.swift in Sources */,
 				62B3923928474AE90049E89A /* IsUserLoggedInUseCase.swift in Sources */,
+				62E83749287617FE00374F20 /* RealGetImageUseCase.swift in Sources */,
 				6254BBAD28437D11005A9BB8 /* AVPlayerItem+Publishers.swift in Sources */,
 				62F772FD284905C300D84337 /* UploadContentRemoteDataSource.swift in Sources */,
+				62A3E8E62880C8EC00D0D93D /* RealContentPickedDictionaryToImageUrlMapper.swift in Sources */,
 				62F772FA284904DD00D84337 /* UploadContentNetworkService.swift in Sources */,
 				6209CDC828553721008285AC /* AuthenticationCoordinator.swift in Sources */,
 				6254BBA628437C86005A9BB8 /* UIColor+.swift in Sources */,
+				62E83747287617B700374F20 /* GetImageUseCase.swift in Sources */,
 				62B392142846BC6A0049E89A /* RealUserAuthorizationRepository.swift in Sources */,
 				6254BBAB28437CEE005A9BB8 /* AVPlayer+Publishers.swift in Sources */,
 				62B3920D2846B73A0049E89A /* ASAuthorizationAppleIDCredentialToUserAuthorizationMapper.swift in Sources */,
+				62A3E8DC2880C70000D0D93D /* CreateVideoPostCoordinator.swift in Sources */,
 				6254BBEC2844EA16005A9BB8 /* AudioSessionVolumeMonitor.swift in Sources */,
 				6209CDAE2850ED88008285AC /* RefreshPostsUseCase.swift in Sources */,
 				62F772D42847D57E00D84337 /* RealGetUserUseCase.swift in Sources */,
 				6254BB852842B092005A9BB8 /* PhotoPostView.swift in Sources */,
 				629040192868DCA700DAE52B /* RealVideoRepository.swift in Sources */,
+				62A3E8EF28813EB600D0D93D /* CreatePhotoPostViewModel.swift in Sources */,
 				62E2811727EA516E005BE178 /* VerticalScrollablePageViewModel.swift in Sources */,
 				62E2811427EA3946005BE178 /* ProgressBar.swift in Sources */,
 				6254BBD92844CB12005A9BB8 /* RealFilenameToLocalPathMapper.swift in Sources */,
 				6254BB3A2841466F005A9BB8 /* PostLocalDataSource.swift in Sources */,
 				6254BB5E2841557B005A9BB8 /* PostsRemoteDataModel.swift in Sources */,
 				6254BB4828414C25005A9BB8 /* PostLocalDataModelToPostMapper.swift in Sources */,
-				62F8D0D3284FC9EE0004A7CD /* VideoView.swift in Sources */,
+				62F8D0D3284FC9EE0004A7CD /* LoopVideoView.swift in Sources */,
+				62D0C0112880ABD1009DFE39 /* GenericVideoPicker.swift in Sources */,
 				62F772E72847DB3300D84337 /* RealUserAuthorizationToUserMapper.swift in Sources */,
 				62B392332846CB0E0049E89A /* RealUserAuthorizationToUserAuthorizationRemoteDataModelMapper.swift in Sources */,
 				6254BB8C2842BC4C005A9BB8 /* PhotoPostUIModel.swift in Sources */,
 				6279BE2F27C14885009EE96E /* VerticalScrollablePageView.swift in Sources */,
-				6254BBE12844D1EA005A9BB8 /* ImageCacheService.swift in Sources */,
 				62B3921C2846BE910049E89A /* RealUserAuthoriationLocalDataSource.swift in Sources */,
-				627616DA284CE79200502AC0 /* CreatePostPartOneViewModel.swift in Sources */,
 				627616DF284CE93D00502AC0 /* RealCreatePostUseCase.swift in Sources */,
+				62E8375B287631EA00374F20 /* LoopVideoPlayerView.swift in Sources */,
 				6254BB25284142FD005A9BB8 /* RealLoadPostsForPageUseCase.swift in Sources */,
+				62E8375728761CB200374F20 /* ImageRemoteDataSource.swift in Sources */,
 				6209CDB928552314008285AC /* VerticalScrollablePageCoordinator.swift in Sources */,
+				62D0C01B2880B4C8009DFE39 /* RealContentPickedDictionaryToVideoUrlMapper.swift in Sources */,
 				6209CDC028552899008285AC /* LoadingScreenViewModel.swift in Sources */,
 				62F7730428490C8B00D84337 /* UploadResponseRemoteDataModel.swift in Sources */,
 				62F772DC2847D7D400D84337 /* RealUserRepository.swift in Sources */,
 				62B392022846AA9A0049E89A /* User.swift in Sources */,
-				62F8D0D5284FCD5F0004A7CD /* CreatePostPartTwoViewModel.swift in Sources */,
 				62E2811227EA266A005BE178 /* SwipebleVideoPlayerView.swift in Sources */,
 				62C6300728685EE0009C294C /* RealLocalStorageService.swift in Sources */,
 				6254BB6228415B2B005A9BB8 /* DatabaseError.swift in Sources */,
 				62B392122846BBAD0049E89A /* UserAuthorizationRepository.swift in Sources */,
 				62B3921E2846BFA40049E89A /* UserAuthoriationRemoteDataSource.swift in Sources */,
 				6254BB4428414987005A9BB8 /* ApplicationError.swift in Sources */,
+				62E83752287619CF00374F20 /* ImageLocalDataSource.swift in Sources */,
 				62B3922E2846C98B0049E89A /* RealUserAuthorizationToUserAuthorizationLocalDataModelMapper.swift in Sources */,
 				6254BB7A2841719D005A9BB8 /* ResolverService.swift in Sources */,
 				6209CDAA2850EB82008285AC /* RealPostRemoteDataModelToPostLocalDataModelMapper.swift in Sources */,
+				62A3E8E92880CA4B00D0D93D /* GenericCreatePostViewModel.swift in Sources */,
 				627616E4284CF1D200502AC0 /* PostRemoteDataModelToPostModelMapper.swift in Sources */,
 				62F772E52847DB1400D84337 /* UserAuthorizationToUserMapper.swift in Sources */,
-				627616D52849129C00502AC0 /* CreatePostPartOneView.swift in Sources */,
 				62F772DA2847D6DC00D84337 /* UserLocalDataModel.swift in Sources */,
 				6279BE6127C17110009EE96E /* AdvertisingPostView.swift in Sources */,
 				6254BBB82844B6D6005A9BB8 /* URL+.swift in Sources */,
@@ -1840,10 +2050,11 @@
 				6279BE6A27C1B2A9009EE96E /* RootNavigationController.swift in Sources */,
 				6279BE5B27C15276009EE96E /* VideoPostView.swift in Sources */,
 				6254BB7228416C13005A9BB8 /* VerticalScrollablePageUIModel.swift in Sources */,
+				62A3E8E42880C8A600D0D93D /* ContentPickedDictionaryToImageUrlMapper.swift in Sources */,
 				629040232868DDDC00DAE52B /* RealVideoLocalDataSource.swift in Sources */,
 				62B3920F2846B7950049E89A /* RealASAuthorizationAppleIDCredentialToUserAuthorizationMapper.swift in Sources */,
 				6279BE2B27C14885009EE96E /* AppDelegate.swift in Sources */,
-				62F8D0DB284FD0080004A7CD /* CreatePostPartOneUIModel.swift in Sources */,
+				62E8375928761D1300374F20 /* RealImageRemoteDataSource.swift in Sources */,
 				6254BB1E284141FA005A9BB8 /* PostType.swift in Sources */,
 				62E2813027F39B4A005BE178 /* PluggableApplicationDelegate.swift in Sources */,
 				62B392312846CAD70049E89A /* UserAuthorizationToUserAuthorizationRemoteDataModelMapper.swift in Sources */,
@@ -1854,22 +2065,23 @@
 				6254BBA828437CA9005A9BB8 /* UIImageView+.swift in Sources */,
 				62B3921A2846BDDB0049E89A /* UserAuthorizationLocalDataModel.swift in Sources */,
 				62B3923B28474B140049E89A /* RealUserSignInStatusUseCase.swift in Sources */,
+				62D0C0162880B3EE009DFE39 /* CreateVideoPostViewModel.swift in Sources */,
 				62B392172846BD590049E89A /* UserAuthoriationLocalDataSource.swift in Sources */,
 				6254BB5128414F1C005A9BB8 /* PostsModel.swift in Sources */,
+				62D0C00F2880AB82009DFE39 /* CreateVideoPostView.swift in Sources */,
 				62E2810427E25E56005BE178 /* VideoPostUIModel.swift in Sources */,
 				6254BB5A28415347005A9BB8 /* HTTPMethod.swift in Sources */,
-				62F8D0CD284CF58A0004A7CD /* RealContentPickedDictionaryToContentToupleMapper.swift in Sources */,
 				6254BBD72844CACF005A9BB8 /* FilenameToLocalPathMapper.swift in Sources */,
 				62F772F22849011900D84337 /* RealUploadVideoUseCase.swift in Sources */,
 				6254BBB42844B267005A9BB8 /* RealGetVideoAssetUseCase.swift in Sources */,
 				6254BB7D28417CCD005A9BB8 /* PostModelToPostUIModelMapper.swift in Sources */,
 				62F772FF284905F800D84337 /* RealUploadContentRemoteDataSource.swift in Sources */,
 				6209CDB02850EDA9008285AC /* RealRefreshPostsUseCase.swift in Sources */,
-				62F8D0D9284FCFDD0004A7CD /* CreatePostPartTwoUIModel.swift in Sources */,
 				6254BB922842BE90005A9BB8 /* GenericPostViewModel.swift in Sources */,
 				6209CDA82850EB58008285AC /* PostRemoteDataModelToPostLocalDataModelMapper.swift in Sources */,
-				62F8D0CB284CF5530004A7CD /* ContentPickedDictionaryToContentToupleMapper.swift in Sources */,
 				6254BB6F284168A8005A9BB8 /* PostsUIModel.swift in Sources */,
+				62E8374E287618FB00374F20 /* RealImageRepositoy.swift in Sources */,
+				62D0C0202880C0BB009DFE39 /* NextButton.swift in Sources */,
 				6209CDB32850EE5D008285AC /* DeleteAllPostsUseCase.swift in Sources */,
 				629040172868DC8100DAE52B /* VideoRepository.swift in Sources */,
 				6254BB3F28414822005A9BB8 /* RealPostLocalDataSource.swift in Sources */,
@@ -1877,7 +2089,6 @@
 				6254BB582841533A005A9BB8 /* NetworkService.swift in Sources */,
 				6254BB6028415604005A9BB8 /* NetworkError.swift in Sources */,
 				6254BB892842B0BD005A9BB8 /* PhotoPostViewModel.swift in Sources */,
-				6254BBE32844D230005A9BB8 /* RealImageCacheService.swift in Sources */,
 				6254BBAF28437D2C005A9BB8 /* AVPlayerMetadataKey+Typed.swift in Sources */,
 				626C3EAB2868DA2A000F2C47 /* RealGetPostsStreamUseCase.swift in Sources */,
 				6254BB5C2841537A005A9BB8 /* PostNetworkService.swift in Sources */,
@@ -1886,11 +2097,12 @@
 				62F8D0DD2850E5150004A7CD /* LoadPostsForPageUseCase.swift in Sources */,
 				6254BB2B28414434005A9BB8 /* PostRepository.swift in Sources */,
 				62B3922C2846C95F0049E89A /* UserAuthorizationToUserAuthorizationLocalDataModelMapper.swift in Sources */,
+				62A3E8F62881427900D0D93D /* CreatePhotoPostCoordinator.swift in Sources */,
 				6254BB552841505C005A9BB8 /* NetworkServiceProvider.swift in Sources */,
-				62F8D0CF284FB1190004A7CD /* CreatePostPartTwoView.swift in Sources */,
 				6254BB41284148C3005A9BB8 /* PostRemoteDataSource.swift in Sources */,
 				62F772D72847D65300D84337 /* UserRepository.swift in Sources */,
 				62E2811A27EA5326005BE178 /* LoadingView.swift in Sources */,
+				62A3E8F228813FD000D0D93D /* GenericImagePicker.swift in Sources */,
 				6279BE6827C1AFA4009EE96E /* AuthenticationView.swift in Sources */,
 				6254BBA428437C6E005A9BB8 /* CGFloat+.swift in Sources */,
 				6254BB1B284141A6005A9BB8 /* PostRemoteDataModel.swift in Sources */,
@@ -1901,17 +2113,21 @@
 				6254BB9A2842C8E6005A9BB8 /* AuthenticationViewModel.swift in Sources */,
 				6254BBA0284351F8005A9BB8 /* SwipebleVideoPlayerViewModel.swift in Sources */,
 				629040252868E3A100DAE52B /* FilesystemError.swift in Sources */,
+				62D0C0192880B4A1009DFE39 /* ContentPickedDictionaryToVideoUrlMapper.swift in Sources */,
 				627616DD284CE90600502AC0 /* CreatePostUseCase.swift in Sources */,
 				6254BB5328414FD6005A9BB8 /* RealPostRemoteDataSource.swift in Sources */,
 				6254BB7F28417D32005A9BB8 /* RealPostModelToPostUIModelMapper.swift in Sources */,
 				6254BBB22844B217005A9BB8 /* GetVideoAssetUseCase.swift in Sources */,
+				62A3E8EC2880CC9300D0D93D /* CreatePhotoPostView.swift in Sources */,
 				62B392202846BFAD0049E89A /* RealUserAuthoriationRemoteDataSource.swift in Sources */,
 				626C3EAC2868DA2A000F2C47 /* GetPostsStreamUseCase.swift in Sources */,
 				6254BB3D284146F3005A9BB8 /* PostLocalDataModel.swift in Sources */,
 				62B392282846C4F20049E89A /* AuthorizationNetworkService.swift in Sources */,
 				62B3920A2846B6630049E89A /* UserAuthorization.swift in Sources */,
+				62E8375428761A0E00374F20 /* RealImageLocalDataSource.swift in Sources */,
 				62B391FD2846AA540049E89A /* RealSignInWithAppleUseCase.swift in Sources */,
 				6209CDC528553659008285AC /* Storyboarded.swift in Sources */,
+				62E8374C287618CB00374F20 /* ImageRepositoy.swift in Sources */,
 				62B391FB2846AA030049E89A /* SignInWithAppleUseCase.swift in Sources */,
 				629040212868DDAD00DAE52B /* VideoLocalDataSource.swift in Sources */,
 				62E2813227F3A1F3005BE178 /* GlobalNavigationService.swift in Sources */,

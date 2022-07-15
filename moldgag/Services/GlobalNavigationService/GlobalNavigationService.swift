@@ -34,15 +34,17 @@ class GlobalNavigationService: NSObject, ApplicationService {
     
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        
+     
+        /*
         let rootNavigationController = RootNavigationController()
-//        let loadingCoordinator = LoadingCoordinator(rootNavigationController)
-//        loadingCoordinator.start()
-        
         let verticalScrollablePageCoordinator = VerticalScrollablePageCoordinator(rootNavigationController)
         verticalScrollablePageCoordinator.start()
+    */
         
-        (UIApplication.shared.delegate as? AppDelegate)?.window?.rootViewController = rootNavigationController
+        let vc = CreateVideoPostView()
+        let nc = UINavigationController(rootViewController: vc)
+        
+        (UIApplication.shared.delegate as? AppDelegate)?.window?.rootViewController = nc
         (UIApplication.shared.delegate as? AppDelegate)?.window?.makeKeyAndVisible()
     
         return true

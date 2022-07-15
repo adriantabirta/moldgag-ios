@@ -1,5 +1,5 @@
 //
-//  VideoView.swift
+//  LoopVideoView.swift
 //  moldgag
 //
 //  Created by Adrian Tabirta on 07.06.2022.
@@ -8,21 +8,21 @@
 import UIKit
 import AVFoundation
 
-open class VideoView: UIView {
-
+open class LoopVideoView: UIView {
+    
     public enum Repeat {
         case once
         case loop
     }
-
+    
     override open class var layerClass: AnyClass {
         return AVPlayerLayer.self
     }
-
+    
     private var playerLayer: AVPlayerLayer {
         return self.layer as! AVPlayerLayer
     }
-
+    
     public var player: AVPlayer? {
         get {
             self.playerLayer.player
@@ -31,8 +31,7 @@ open class VideoView: UIView {
             self.playerLayer.player = newValue
         }
     }
-
-
+    
     open override var contentMode: UIView.ContentMode {
         didSet {
             switch self.contentMode {
@@ -45,9 +44,9 @@ open class VideoView: UIView {
             }
         }
     }
-
+    
     public var `repeat`: Repeat = .loop
-
+    
     public var url: URL? {
         didSet {
             guard let url = self.url else {
@@ -57,81 +56,69 @@ open class VideoView: UIView {
             self.setup(url: url)
         }
     }
-
+    
     @available(*, unavailable)
     override init(frame: CGRect) {
         super.init(frame: frame)
-
+        
         self.initialize()
     }
-
+    
     @available(*, unavailable)
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-
+        
         self.initialize()
     }
-
+    
     public init() {
         super.init(frame: .zero)
-
+        
         self.translatesAutoresizingMaskIntoConstraints = false
-
+        
         self.initialize()
     }
-
+    
     open func initialize() {
-
+        self.backgroundColor = .offWhite
+        self.layer.cornerRadius = 5
+        self.layer.masksToBounds = true
     }
-
+    
     deinit {
         self.teardown()
     }
-
-
+    
     private func setup(url: URL) {
-
+        
         self.player = AVPlayer(playerItem: AVPlayerItem(url: url))
-
-        self.player?.currentItem?.addObserver(self,
-                                              forKeyPath: "status",
-                                              options: [.old, .new],
-                                              context: nil)
-
+        
+        self.player?.currentItem?.addObserver(self, forKeyPath: "status", options: [.old, .new], context: nil)
         self.player?.addObserver(self, forKeyPath: "rate", options: [.old, .new], context: nil)
-
-
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(self.itemDidPlayToEndTime(_:)),
-                                               name: .AVPlayerItemDidPlayToEndTime,
-                                               object: self.player?.currentItem)
-
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(self.itemFailedToPlayToEndTime(_:)),
-                                               name: .AVPlayerItemFailedToPlayToEndTime,
-                                               object: self.player?.currentItem)
+        
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.itemDidPlayToEndTime(_:)),
+                                               name: .AVPlayerItemDidPlayToEndTime, object: self.player?.currentItem)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.itemFailedToPlayToEndTime(_:)),
+                                               name: .AVPlayerItemFailedToPlayToEndTime, object: self.player?.currentItem)
     }
-
+    
     private func teardown() {
         self.player?.pause()
-
+        
         self.player?.currentItem?.removeObserver(self, forKeyPath: "status")
-
+        
         self.player?.removeObserver(self, forKeyPath: "rate")
-
-        NotificationCenter.default.removeObserver(self,
-                                                  name: .AVPlayerItemDidPlayToEndTime,
-                                                  object: self.player?.currentItem)
-
-        NotificationCenter.default.removeObserver(self,
-                                                  name: .AVPlayerItemFailedToPlayToEndTime,
-                                                  object: self.player?.currentItem)
-
+        
+        NotificationCenter.default.removeObserver(self, name: .AVPlayerItemDidPlayToEndTime, object: self.player?.currentItem)
+        
+        NotificationCenter.default.removeObserver(self, name: .AVPlayerItemFailedToPlayToEndTime, object: self.player?.currentItem)
+        
         self.player = nil
     }
-
-
-
+    
+    
     @objc func itemDidPlayToEndTime(_ notification: NSNotification) {
         guard self.repeat == .loop else {
             return
@@ -139,29 +126,25 @@ open class VideoView: UIView {
         self.player?.seek(to: .zero)
         self.player?.play()
     }
-
+    
     @objc func itemFailedToPlayToEndTime(_ notification: NSNotification) {
         self.teardown()
     }
-
-
-    open override func observeValue(forKeyPath keyPath: String?,
-                                          of object: Any?,
-                                          change: [NSKeyValueChangeKey : Any]?,
-                                          context: UnsafeMutableRawPointer?) {
+    
+    open override func observeValue(forKeyPath keyPath: String?, of object: Any?,
+                                    change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "status", let status = self.player?.currentItem?.status, status == .failed {
             self.teardown()
         }
-
-        if
-            keyPath == "rate",
-            let player = self.player,
-            player.rate == 0,
-            let item = player.currentItem,
-            !item.isPlaybackBufferEmpty,
-            CMTimeGetSeconds(item.duration) != CMTimeGetSeconds(player.currentTime())
-        {
+        
+        if keyPath == "rate", let player = self.player, player.rate == 0, let item = player.currentItem,
+           !item.isPlaybackBufferEmpty, CMTimeGetSeconds(item.duration) != CMTimeGetSeconds(player.currentTime()) {
             self.player?.play()
         }
     }
+}
+
+
+extension UIColor {
+    static let offWhite = UIColor.init(red: 225/255, green: 225/255, blue: 235/255, alpha: 1)
 }

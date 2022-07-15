@@ -76,7 +76,6 @@ private extension ResolverService {
 
         let window = (UIApplication.shared.delegate as! PluggableApplicationDelegate).window
         Resolver.register { RealSignInWithAppleUseCase(window: window) as SignInWithAppleUseCase? }
-        
         Resolver.register { RealGetImageUseCase() as GetImageUseCase }
     }
     
@@ -96,16 +95,18 @@ private extension ResolverService {
         Resolver.register { RealUserAuthorizationToUserMapper() as UserAuthorizationToUserMapper }
 
         Resolver.register { RealPostRemoteDataModelToPostModelMapper() as PostRemoteDataModelToPostModelMapper }
-        Resolver.register { RealContentPickedDictionaryToContentToupleMapper() as ContentPickedDictionaryToContentToupleMapper }
         Resolver.register { RealPostRemoteDataModelToPostLocalDataModelMapper() as PostRemoteDataModelToPostLocalDataModelMapper }
+
+        Resolver.register { RealContentPickedDictionaryToVideoUrlMapper() as ContentPickedDictionaryToVideoUrlMapper  }
+        Resolver.register { RealContentPickedDictionaryToImageUrlMapper() as ContentPickedDictionaryToImageUrlMapper }
 
     }
     
     func registerViewModels() {
         Resolver.register { AuthenticationViewModel() }
-        Resolver.register { CreatePostPartOneViewModel() }
         Resolver.register { LoadingScreenViewModel() }
         Resolver.register { VerticalScrollablePageViewModel(verticalScrollablePageUIModel: .init()) }
+        Resolver.register { CreateVideoPostViewModel() }
     }
     
     func registerNetworkServices() {
