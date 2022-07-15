@@ -30,7 +30,6 @@ class CreateVideoPostCoordinator: Coordinator {
     }
     
     func dismiss() {
-        //
+        navigationController.dismiss(animated: true)
     }
-    
 }
