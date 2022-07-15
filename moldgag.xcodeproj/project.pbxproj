@@ -78,7 +78,6 @@
 		6254BBDE2844CD05005A9BB8 /* FilenameToLocalPathMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6254BBD62844CACF005A9BB8 /* FilenameToLocalPathMapper.swift */; };
 		6254BBEC2844EA16005A9BB8 /* AudioSessionVolumeMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6254BBEB2844EA16005A9BB8 /* AudioSessionVolumeMonitor.swift */; };
 		626C3EA42868D61D000F2C47 /* DeleteAllPostsUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626C3EA32868D61D000F2C47 /* DeleteAllPostsUseCaseTests.swift */; };
-		626C3EA72868D6F0000F2C47 /* ImageCacheServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626C3EA62868D6F0000F2C47 /* ImageCacheServiceMock.swift */; };
 		626C3EAB2868DA2A000F2C47 /* RealGetPostsStreamUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626C3EA92868DA2A000F2C47 /* RealGetPostsStreamUseCase.swift */; };
 		626C3EAC2868DA2A000F2C47 /* GetPostsStreamUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626C3EAA2868DA2A000F2C47 /* GetPostsStreamUseCase.swift */; };
 		627616D628491CD000502AC0 /* PluggableApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E2812F27F39B4A005BE178 /* PluggableApplicationDelegate.swift */; };
@@ -277,7 +276,6 @@
 		6254BBDB2844CCC4005A9BB8 /* FilenameToLocalPathMapperMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilenameToLocalPathMapperMock.swift; sourceTree = "<group>"; };
 		6254BBEB2844EA16005A9BB8 /* AudioSessionVolumeMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioSessionVolumeMonitor.swift; sourceTree = "<group>"; };
 		626C3EA32868D61D000F2C47 /* DeleteAllPostsUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAllPostsUseCaseTests.swift; sourceTree = "<group>"; };
-		626C3EA62868D6F0000F2C47 /* ImageCacheServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheServiceMock.swift; sourceTree = "<group>"; };
 		626C3EA92868DA2A000F2C47 /* RealGetPostsStreamUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealGetPostsStreamUseCase.swift; sourceTree = "<group>"; };
 		626C3EAA2868DA2A000F2C47 /* GetPostsStreamUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetPostsStreamUseCase.swift; sourceTree = "<group>"; };
 		627616DC284CE90600502AC0 /* CreatePostUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostUseCase.swift; sourceTree = "<group>"; };
@@ -965,7 +963,6 @@
 		6254BBCD2844BE6C005A9BB8 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
-				626C3EA62868D6F0000F2C47 /* ImageCacheServiceMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -2171,7 +2168,6 @@
 				62C62FF2286850E4009C294C /* LoadPostsForPageUseCaseMock.swift in Sources */,
 				62E2154D2868D243008E6AF3 /* RefreshPostsUseCaseTests.swift in Sources */,
 				62A6CC832868731D00A93352 /* LoadPostsForPageUseCaseTests.swift in Sources */,
-				626C3EA72868D6F0000F2C47 /* ImageCacheServiceMock.swift in Sources */,
 				624D81FC2868ECB700316792 /* VideoRepositoryMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
