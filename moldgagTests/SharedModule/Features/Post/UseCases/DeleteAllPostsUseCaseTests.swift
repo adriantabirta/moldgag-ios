@@ -15,9 +15,7 @@ class DeleteAllPostsUseCaseTests: XCTestCase {
     private var postRepository: PostRepositoryMock!
     
     private var videoRepository: VideoRepositoryMock!
-    
-    private var imageCacheService: ImageCacheServiceMock!
-    
+        
     private var tested: DeleteAllPostsUseCase!
     
     private var cancellables: Set<AnyCancellable>!
@@ -27,7 +25,6 @@ class DeleteAllPostsUseCaseTests: XCTestCase {
         Resolver.registerForUnitTests()
         self.postRepository = Resolver.resolveMock(PostRepository.self)
         self.videoRepository = Resolver.resolveMock(VideoRepository.self)
-        self.imageCacheService = Resolver.resolveMock(ImageCacheService.self)
         
         self.tested = RealDeleteAllPostsUseCase()
         self.cancellables = .init()
@@ -37,7 +34,6 @@ class DeleteAllPostsUseCaseTests: XCTestCase {
         super.tearDown()
         self.postRepository = nil
         self.videoRepository = nil
-        self.imageCacheService = nil
         self.tested = nil
         self.cancellables = nil
         Resolver.resetForUnitTests()
@@ -47,7 +43,6 @@ class DeleteAllPostsUseCaseTests: XCTestCase {
         let expectation = expectation(description: "DeleteAllPostsUseCaseTests::testExecuteWithSuccess")
         postRepository.stubbedDeleteAllResult = Just(()).eraseToAnyPublisher()
         videoRepository.stubbedDeleteAllResult = Just(()).eraseToAnyPublisher()
-        imageCacheService.stubbedDeleteAllCacheResult = Just(()).eraseToAnyPublisher()
         
         tested.execute().sink(receiveValue: {
             expectation.fulfill()
@@ -56,7 +51,6 @@ class DeleteAllPostsUseCaseTests: XCTestCase {
         wait(for: [expectation], timeout: 1.0)
         XCTAssertEqual(postRepository.invokedDeleteAllCount, 1, "Should be called only once.")
         XCTAssertEqual(videoRepository.invokedDeleteAllCount, 1, "Should be called only once.")
-        XCTAssertEqual(imageCacheService.invokedDeleteAllCacheCount, 1, "Should be called only once.")
     }
     
 }

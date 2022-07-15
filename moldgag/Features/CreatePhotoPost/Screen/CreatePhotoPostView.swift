@@ -33,4 +33,8 @@ extension CreatePhotoPostView {
         guard let url = viewModel.imageUrl else { return }
         coordinator?.navigateToNextScreen(url)
     }
+    
+    func test() {
+        
+    }
 }
